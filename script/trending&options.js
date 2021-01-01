@@ -1,9 +1,9 @@
 const API_KEY = 'jWJFF6ZVFn7p6nk7dDLNkUpBqUBwK1fU'
 
 if (localStorage.getItem('favGifs') == null){
-    let favsList = []
+    var favsList = []
 }else{
-    favsList = JSON.parse(localStorage.getItem('favGifs'))
+    var favsList = JSON.parse(localStorage.getItem('favGifs'))
 }
 
 const getTrendings = async () => {
@@ -34,7 +34,7 @@ showTrendings = trendings => {
 // GIFS OPTIONS
 
 function gifsOptions (favsList, gif, username, gifTitle, gifID) {
-    gif.addEventListener('mouseenter', async () => {
+    gif.addEventListener('mouseenter', () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
         gif.appendChild(gifOptions)
