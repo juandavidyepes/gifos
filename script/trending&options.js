@@ -34,7 +34,7 @@ showTrendings = trendings => {
 // GIFS OPTIONS
 
 function gifsOptions (favsList, gif, username, gifTitle, gifID) {
-    gif.addEventListener('mouseenter', () => {
+    gif.addEventListener('mouseenter', async () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
         gif.appendChild(gifOptions)
