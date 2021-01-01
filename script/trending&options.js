@@ -1,5 +1,11 @@
 const API_KEY = 'jWJFF6ZVFn7p6nk7dDLNkUpBqUBwK1fU'
 
+if (localStorage.getItem('favGifs') == null){
+    let favsList = []
+}else{
+    favsList = JSON.parse(localStorage.getItem('favGifs'))
+}
+
 const getTrendings = async () => {
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=3`);
     const data = await response.json()
@@ -21,19 +27,13 @@ showTrendings = trendings => {
         gifsTrendContainer.insertBefore(gifTrend, gifsTrendContainer.childNodes[2])
         gifTrend.style.backgroundImage=urlGifTrend
         gifTrend.style.backgroundSize = '357px 275px'
-        gifsOptions(gifTrend, trending.username, trending.title, trending.id)
+        gifsOptions(favsList, gifTrend, trending.username, trending.title, trending.id)
     })
 }
 
 // GIFS OPTIONS
 
-if (localStorage.getItem('favGifs') == null){
-    let favsList = []
-}else{
-    favsList = JSON.parse(localStorage.getItem('favGifs'))
-}
-
-function gifsOptions (gif,username,gifTitle,gifID) {
+function gifsOptions (favsList, gif, username, gifTitle, gifID) {
     gif.addEventListener('mouseenter', async () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
