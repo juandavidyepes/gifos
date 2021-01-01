@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/196bba3b65.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>              
+    <nav>
+        <a id="navLogo" href='index.html'><img class="navLogo" src="images/logo-desktop.svg" alt="logo"></a>
+        <ul>
+            <li><input type="checkbox" class="darkModeButton" id="darkModeButton"><label for="darkModeButton">MODO NOCTURNO</label></li>
+            <li><a id="favsButton" href="favs.html">FAVORITOS</a></li>
+            <li><a id="myGifsButton" href="myGifs.html">MIS GIFOS</a></li>
+            <li><a href='createGif.html'><img src="images/button-crear-gifo.svg"></a></li>
+        </ul>
+        <input type="checkbox" class="menuButton" id="menuButton">
+        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/burger.svg"></span></label>
+        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/close.svg"></span></label>
+    </nav>
+    <main>
+        <section class="search">
+            <h1 class="title">Inspírate, busca, guarda y crea los mejores <span class='word'> GIFOS</span></h1>
+            <img class="imgHeader" src="images/ilustra_header.svg" alt="Header image">
+            <form class="searchBar">
+                <input type='image' class="searchIconGrey" src="images/icon-search-grey.svg" alt="submit">
+                <input type="text" class="searchInput" placeholder="Busca GIFOS y más">
+                <input type='image' class="searchIcon" src="images/icon-search.svg" alt="submit">
+                <img class='resetIcon' src="images/close.svg" alt="reset">
+            </form>
+            <ul class="autocompleteList"></ul>
+            <h2 class='titleTrend'>Trending:</h2>
+            <div class='trendingTermsContainer'></div>
+            <div class="searchResults"></div>
+            <div class="buttonContainer"><a class="btnVerMas" type="button" ><img class='imgVerMas' src='images/CTA-ver-mas.svg'></img></a></div>
+            <div class="searchNoContent">
+                <img src="images/icon-busqueda-sin-resultado.svg" alt="Ouch no results">
+                <h3>Intenta con otra búsqueda</h3>
+            </div>
+        </section>
+        <section class="trending">
+            <h2>Trending GIFOS</h2>
+            <h3>Mira los últimos GIFOS de nuestra comunidad.</h3>
+            <div class='gifsTrendContainer'>
+                <img class="imgLeftArrow" src="images/button-slider-left.svg" alt="Slide left">
+                <img class="imgRightArrow" src="images/button-slider-right.svg" alt="Slide left">
+            </div>
+        </section>
+        <section class="addGif">
+
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h3>Compartir en:</h3>
+            <a href="https://www.facebook.com/search/top?q=gifs" target='_blank'><img class='facebook' src="images/icon_facebook.svg"></a>
+            <a href="https://twitter.com/search?q=gifs&src=typed_query" target='_blank'><img class='twitter' src="images/icon-twitter.svg"></a>
+            <a href="https://www.instagram.com/" target='_blank'><img class='instagram' src="images/icon_instagram.svg"></a>          
+        </div>
+        <h3>© GIFOS 2020 All Rights Reserveds</h3>
+    </footer>
+    <script src="script\trending&options.js"></script>  
+    <script src="script\giphyAPI.js"></script>  
+    <script src="script\index.js"></script>     
+    <script src="script\darkMode.js"></script>    
+</body>
+</html>
