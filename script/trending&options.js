@@ -15,7 +15,6 @@ const gifsTrendContainer = document.querySelector('.gifsTrendContainer')
 //Crea un div para mostrar cada gif trending obtenido,asignandolo a su imagen de fondo. Llamo la funcion para mostrar las opciones en cada uno
 showTrendings = trendings => {
     trendings.forEach(trending => {
-        console.log(trending)
         const gifTrend = document.createElement('div')
         const urlGifTrend = "url('"+trending.images.original.url+"')"
         gifTrend.classList.add('gif')
@@ -36,7 +35,6 @@ if (localStorage.getItem('favGifs') == null){
 
 function gifsOptions (gif,username,gifTitle,gifID) {
     gif.addEventListener('mouseenter', async () => {
-        console.log(gif)
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
         gif.appendChild(gifOptions)
@@ -102,7 +100,6 @@ function addFavGif (favBtn, trashBtn, gifInfo) {
 }
 
 function removeFavGif (favBtn, trashBtn, gifInfo) {
-    console.log(gifInfo)
     trashBtn.addEventListener('click', async () => {
         const index = favsList.map(function(e){return e.title;}).indexOf(gifInfo.title)
         favsList.splice(index, 1)      
