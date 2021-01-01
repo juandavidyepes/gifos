@@ -27,13 +27,13 @@ showTrendings = trendings => {
         gifsTrendContainer.insertBefore(gifTrend, gifsTrendContainer.childNodes[2])
         gifTrend.style.backgroundImage=urlGifTrend
         gifTrend.style.backgroundSize = '357px 275px'
-        gifsOptions(favsList, gifTrend, trending.username, trending.title, trending.id)
+        gifsOptions(gifTrend, trending.username, trending.title, trending.id)
     })
 }
 
 // GIFS OPTIONS
 
-function gifsOptions (favsList, gif, username, gifTitle, gifID) {
+function gifsOptions (gif, username, gifTitle, gifID) {
     gif.addEventListener('mouseenter', async () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')

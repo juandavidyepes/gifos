@@ -15,6 +15,6 @@ if (favsList.length == 0){
         gifFav.classList.add('gif')
         gifFav.style.backgroundImage=favGif.url
         gifFav.style.backgroundSize = '260px 200px'  
-        gifsOptions(favsList, gifFav, favGif.username, favGif.title, favGif.id)
+        gifsOptions(gifFav, favGif.username, favGif.title, favGif.id)
     })
 }

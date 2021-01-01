@@ -132,7 +132,7 @@ const showGifs = gifsSearch => {
         searchResults.appendChild(gifSearched)
         gifSearched.style.backgroundImage=urlGif
         gifSearched.style.backgroundSize = '260px 200px'   
-        gifsOptions(favsList, gifSearched, gifSearch.username, gifSearch.title, gifSearch.id)
+        gifsOptions(gifSearched, gifSearch.username, gifSearch.title, gifSearch.id)
     })
 }
 
