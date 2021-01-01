@@ -467,7 +467,7 @@ nav .darkModeButton{
 }
 
 .trending .gifsTrendContainer .imgRightArrow:hover{
-    content: url('../images/button-slider-right-hover.svg');
+    content: url('../images/button-slider-left-hover.svg');
 }
 
 /***    ADD GIFS    ***/
