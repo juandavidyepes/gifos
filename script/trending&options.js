@@ -21,19 +21,20 @@ const gifsTrendContainer = document.querySelector('.gifsTrendContainer')
 //Crea un div para mostrar cada gif trending obtenido,asignandolo a su imagen de fondo. Llamo la funcion para mostrar las opciones en cada uno
 showTrendings = trendings => {
     trendings.forEach(trending => {
+        console.log(trending)
         const gifTrend = document.createElement('div')
         const urlGifTrend = "url('"+trending.images.original.url+"')"
         gifTrend.classList.add('gif')
         gifsTrendContainer.insertBefore(gifTrend, gifsTrendContainer.childNodes[2])
         gifTrend.style.backgroundImage=urlGifTrend
         gifTrend.style.backgroundSize = '357px 275px'
-        gifsOptions(gifTrend, trending.username, trending.title, trending.id)
+        gifsOptions(gifTrend, trending.username, trending.title, trending.id, trending.images.original.url)
     })
 }
 
 // GIFS OPTIONS
 
-function gifsOptions (gif, username, gifTitle, gifID) {
+function gifsOptions (gif, username, gifTitle, gifID, gifURL) {
     gif.addEventListener('mouseenter', async () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
@@ -66,7 +67,8 @@ function gifsOptions (gif, username, gifTitle, gifID) {
             url: gifToFavs.style.backgroundImage,
             username: userIF,
             title: gifTitle,
-            id: gifID
+            id: gifID,
+            urlAlone: gifURL
         }
 
         if(favsList.some(e => e.id === gifInfo.id)){
@@ -79,6 +81,7 @@ function gifsOptions (gif, username, gifTitle, gifID) {
             console.log('no esta')
         }
         download(addDownloadBtn, gifInfo)
+        expand(addmaxBtn, gifInfo)
     })
     gif.addEventListener('mouseleave', async () => {
         gif.innerHTML=''
@@ -113,5 +116,31 @@ function removeFavGif (favBtn, trashBtn, gifInfo) {
 function download (downloadBtn, gifInfo){
     downloadBtn.addEventListener('click', async () => {
         console.log('D E S C A R G A N D O')
+    })
+}
+
+function expand (addmaxBtn, gifInfo){
+    addmaxBtn.addEventListener('click', async () => {
+        console.log('Ampliar')
+        let overlay = document.createElement('div')
+        overlay.classList.add('overlay')
+        let gif = document.createElement("img");
+        gif.classList.add('gifMax')
+        gif.src = gifInfo.urlAlone
+        let username = document.createElement("h2");
+        username.textContent = gifInfo.username
+        let title = document.createElement("h2");
+        title.textContent = gifInfo.title
+        overlay.appendChild(gif)
+        overlay.appendChild(username)
+        overlay.appendChild(title)
+        document.body.appendChild(overlay)
+        let close = document.createElement('img')
+        close.classList.add('close')
+        close.src = 'images/close.svg'
+        overlay.appendChild(close)
+        close.addEventListener('click', () => {
+            overlay.remove()
+        })
     })
 }

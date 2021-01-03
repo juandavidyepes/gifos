@@ -531,44 +531,44 @@ footer div .instagram:hover{
     opacity: 1;
 }
 
-.addFavsBtn{
+.gifOptions .addFavsBtn{
     content: url("../images/icon-fav.svg");
 }
 
-.addFavsBtn:hover{
+.gifOptions .addFavsBtn:hover{
     content: url("../images/icon-fav-hover.svg");
 }
 
-.addFavsBtn:active{
+.gifOptions .addFavsBtn:active{
     content: url("../images/icon-fav-active.svg");
 }
 
-.trashBtn{
+.gifOptions .trashBtn{
     content: url("../images/icon-trash-normal.svg");
     display: none;
 }
 
-.trashBtn:hover{
+.gifOptions .trashBtn:hover{
     content: url("../images/icon-trash-hover.svg");
 }
 
-.downloadBtn{
+.gifOptions .downloadBtn{
     content: url("../images/icon-download.svg");
 }
 
-.downloadBtn:hover{
+.gifOptions .downloadBtn:hover{
     content: url("../images/icon-download-hover.svg");
 }
 
-.maxBtn{
+.gifOptions .maxBtn{
     content: url("../images/icon-max-normal.svg");
 }
 
-.maxBtn:hover{
+.gifOptions .maxBtn:hover{
     content: url("../images/icon-max-hover.svg");
 }
 
-.user{
+.gifOptions .user{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: #FFFFFF;
@@ -605,7 +605,26 @@ footer div .instagram:hover{
     left: 18px;
 }
 
+/***    OVERLAY ***/
 
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: +2;
+    overflow-y: hidden;
+}
+
+
+.overlay .gifMax{
+    width: auto;
+    height: 500px;
+}
 
 /***    DARK   ***/
 
