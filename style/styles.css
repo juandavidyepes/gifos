@@ -608,6 +608,7 @@ footer div .instagram:hover{
 /***    OVERLAY ***/
 
 .overlay{
+    padding-top: 66.4px;
     width: 100%;
     height: 100%;
     background-color: white;
@@ -617,13 +618,95 @@ footer div .instagram:hover{
     top:0;
     bottom:0;
     z-index: +2;
-    overflow-y: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
+.overlay .close{
+    align-self: flex-start;
+    flex-basis: 100%;
+    padding: 0 0 78.4px 79.6%;
+}
+
+.overlay .prevGif{
+    align-self: center;
+    flex-basis: 7%;
+    margin-left: auto;
+}
+
+.overlay .nextGif{
+    align-self: center;
+    flex-basis: 7%;
+    margin-right: auto;
+}
 
 .overlay .gifMax{
     width: auto;
     height: 500px;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.overlay .gifMaxUsername{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #000000;
+    padding: 27px 0 0 24.7%;
+}
+
+.overlay .maxFav, .overlay .trashBtn{
+    align-self: flex-start;
+    margin: 27px 0 0 40%;
+}
+
+.overlay .maxDownload{
+    align-self: flex-start;
+    float: left;
+    margin: 27px 0 0 21px;
+}
+
+.overlay .gifMaxTitle{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+    flex-basis: 100%;
+    padding-left: 24.7%;
+}
+
+.overlay .prevGif:hover{
+    content: url('../images/button-slider-left-hover.svg');
+}
+
+.overlay .nextGif:hover{
+    content: url('../images/Button-Slider-right-hover.svg');
+}
+
+.overlay .maxFav:hover{
+    content: url("../images/icon-fav-hover.svg");
+}
+
+.overlay .maxFav, .overlay .trashBtn, .overlay .maxDownload {
+    border: solid 2px #CED7E1;
+    border-radius: 6px;
+}
+
+.overlay .maxFav:active{
+    content: url("../images/icon-fav-active.svg");
+}
+
+.overlay .trashBtn{
+    content: url("../images/icon-trash-normal.svg");
+    display: none;
+}
+
+.overlay .trashBtn:hover{
+    content: url("../images/icon-trash-hover.svg");
+}
+
+.overlay .maxDownload:hover{
+    content: url("../images/icon-download-hover.svg");
 }
 
 /***    DARK   ***/

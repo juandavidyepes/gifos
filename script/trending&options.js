@@ -116,6 +116,7 @@ function removeFavGif (favBtn, trashBtn, gifInfo) {
 function download (downloadBtn, gifInfo){
     downloadBtn.addEventListener('click', async () => {
         console.log('D E S C A R G A N D O')
+        downloadBtn.download = gifInfo.urlAlone;
     })
 }
 
@@ -123,22 +124,64 @@ function expand (addmaxBtn, gifInfo){
     addmaxBtn.addEventListener('click', async () => {
         console.log('Ampliar')
         let overlay = document.createElement('div')
-        overlay.classList.add('overlay')
-        let gif = document.createElement("img");
-        gif.classList.add('gifMax')
-        gif.src = gifInfo.urlAlone
-        let username = document.createElement("h2");
-        username.textContent = gifInfo.username
-        let title = document.createElement("h2");
-        title.textContent = gifInfo.title
-        overlay.appendChild(gif)
-        overlay.appendChild(username)
-        overlay.appendChild(title)
-        document.body.appendChild(overlay)
         let close = document.createElement('img')
+        let prevGif = document.createElement('img')
+        let gif = document.createElement("img")
+        let nextGif = document.createElement('img')
+        let username = document.createElement("h2")
+        let maxFav = document.createElement('img')
+        let maxDownload = document.createElement('img')
+        let title = document.createElement("h2");
+        overlay.classList.add('overlay')
         close.classList.add('close')
+        prevGif.classList.add('prevGif')
+        gif.classList.add('gifMax')
+        nextGif.classList.add('nextGif')
+        username.classList.add('gifMaxUsername')
+        maxFav.classList.add('maxFav')
+        maxDownload.classList.add('maxDownload')
+        title.classList.add('gifMaxTitle')
         close.src = 'images/close.svg'
+        prevGif.src = 'images/button-slider-left.svg'
+        gif.src = gifInfo.urlAlone
+        nextGif.src = 'images/Button-Slider-right.svg'
+        username.textContent = gifInfo.username
+        maxFav.src = 'images/icon-fav.svg'
+        maxDownload.src = 'images/icon-download.svg'
+        title.textContent = gifInfo.title 
+
+        let flexBreak = document.createElement('div')
+        flexBreak.style.flexBasis = '100%'
+        flexBreak.style.height = '0'
+
+        let addTrashBtn = document.createElement('img')
+        addTrashBtn.classList.add('trashBtn')
+
+        document.body.appendChild(overlay)
         overlay.appendChild(close)
+        overlay.appendChild(prevGif)
+        overlay.appendChild(gif)
+        overlay.appendChild(nextGif)
+        overlay.appendChild(flexBreak)
+        overlay.appendChild(username)
+        overlay.appendChild(maxFav)
+        overlay.appendChild(addTrashBtn)
+        overlay.appendChild(maxDownload)
+        overlay.appendChild(title)
+
+        
+
+        if(favsList.some(e => e.id === gifInfo.id)){
+            console.log('ya esta')
+            maxFav.style.display='none'
+            addTrashBtn.style.display='block'
+            removeFavGif(maxFav, addTrashBtn, gifInfo)
+        }else{
+            addFavGif(maxFav, addTrashBtn, gifInfo)
+            console.log('no esta')
+        }
+        download(maxDownload, gifInfo)
+
         close.addEventListener('click', () => {
             overlay.remove()
         })
