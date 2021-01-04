@@ -120,6 +120,8 @@ function download (downloadBtn, gifInfo){
     })
 }
 
+//GIF MAX
+
 function expand (addmaxBtn, gifInfo){
     addmaxBtn.addEventListener('click', async () => {
         console.log('Ampliar')
@@ -167,9 +169,7 @@ function expand (addmaxBtn, gifInfo){
         overlay.appendChild(maxFav)
         overlay.appendChild(addTrashBtn)
         overlay.appendChild(maxDownload)
-        overlay.appendChild(title)
-
-        
+        overlay.appendChild(title)       
 
         if(favsList.some(e => e.id === gifInfo.id)){
             console.log('ya esta')
@@ -185,5 +185,28 @@ function expand (addmaxBtn, gifInfo){
         close.addEventListener('click', () => {
             overlay.remove()
         })
+
+        prevGif.addEventListener('click', () => {
+            getPrevGif()
+        })
+
+        nextGif.addEventListener('click', () => {
+            getNextGif()
+        })
     })
+}
+
+function getPrevGif () {
+    prevGif.addEventListener('click', () => {
+        getPrevGif()
+    })
+
+    console.log('PREV GIF')
+}
+
+function getNextGif () {
+    nextGif.addEventListener('click', () => {
+            getNextGif()
+        })
+    console.log('PREV GIF')
 }
