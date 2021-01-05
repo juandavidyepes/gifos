@@ -830,6 +830,34 @@ footer div .instagram:hover{
     .gifOptions{
         display: none;
     }
+
+    .overlay .gifMax{
+        max-width: 318px;
+        height: auto;
+        margin: 0 auto 0 auto;
+    }
+
+    .overlay .prevGif, .overlay .nextGif, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
+        display: none;
+    }
+    
+    .overlay .gifMaxUsername{
+        padding: 14px 0 0 35px;
+    }
+    
+    .overlay .maxFav, .overlay .trashBtn{
+        margin: 17px 0 0 30%;
+    }
+    
+    .overlay .maxDownload{
+        margin: 17px 0 0 21px;
+    }
+    
+    .overlay .gifMaxTitle{
+        max-width: 50%;
+        padding-left: 29.5px;
+        margin-top: -10px;
+    }
 }
 
 @media only screen and (max-width: 560px){
@@ -846,8 +874,12 @@ footer div .instagram:hover{
         width: 300px;
     }
 
+    .search .searchBar .searchInput{
+        padding: 0 0 0 15px;
+    }
+
     .search .searchBar .searchIcon{
-        padding-left: 30px;
+        padding: 0 0 0 30px;
     }
 
     .search .resetIcon{
@@ -915,7 +947,7 @@ footer div .instagram:hover{
     }
     
     .overlay .maxFav, .overlay .trashBtn{
-        margin: 17px 0 0 40%;
+        margin: 17px 0 0 30%;
     }
     
     .overlay .maxDownload{
@@ -941,7 +973,7 @@ footer div .instagram:hover{
     }
 
     .favs .favsTitle{
-        padding-bottom: 0;
+        padding-bottom: 46px;
     }
 
     .favs .favsNoContent img{
