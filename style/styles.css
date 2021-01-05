@@ -8,12 +8,15 @@
 /***     NAV        ***/
 
 nav{
-    border-top: 5px solid #572EE5;
     height: 90px;
     display: flex;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border-top: 5px solid #572EE5;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10.8%;
+    padding: 0 10.8%
 }
 
 nav .navLogo{   
@@ -21,7 +24,7 @@ nav .navLogo{
     width: 75px;
 }
 
-nav ul{
+nav .menu{
     display: flex;    
     align-items: center;
     justify-content: space-between;
@@ -40,7 +43,7 @@ nav a{
     text-decoration: none;
 }
 
-nav ul li a{
+nav .menu li a{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 13px;
@@ -208,7 +211,7 @@ nav .darkModeButton{
     color: #572EE5;
 }
 
-.search h3{
+.search .trendingTermsContainer h3{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -217,7 +220,6 @@ nav .darkModeButton{
 }
 
 .search .searchResults{
-    width: auto;
     display: none;
     grid-template-columns: repeat(4,260px);
     grid-template-rows: minmax(auto,200px);
@@ -225,6 +227,7 @@ nav .darkModeButton{
     row-gap: 35px;
     align-items: center;
     justify-items: center;
+    margin: 0 auto 0 auto;
 }
 
 .search .searchResults .gif{
@@ -423,6 +426,7 @@ nav .darkModeButton{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: scroll;
 }
 
 .trending h2{
@@ -603,7 +607,6 @@ footer div .instagram:hover{
 /***    OVERLAY ***/
 
 .overlay{
-    padding-top: 66.4px;
     width: 100%;
     height: 100%;
     background-color: white;
@@ -619,9 +622,11 @@ footer div .instagram:hover{
 }
 
 .overlay .close{
+    width: 15.2px;
+    height: 15.2px;
     align-self: flex-start;
     flex-basis: 100%;
-    padding: 0 0 78.4px 79.6%;
+    margin: 66.4px 0 78.4px 79.6%;
 }
 
 .overlay .prevGif{
@@ -714,3 +719,283 @@ footer div .instagram:hover{
     background-color: #222326;;
 }
 
+@media only screen and (max-width: 1100px){
+    .search .searchResults{
+        grid-template-columns: repeat(3,260px);
+    }
+
+    .favs .favsContent .favsContainer{
+        grid-template-columns: repeat(3,260px);
+    }
+}
+
+@media only screen and (max-width: 900px){
+
+    /* Hamburger Menu */
+
+    .respmenu{
+        position: fixed;
+        height: 95px;
+        display: block;
+        width: 100%;
+        margin: 0;
+        overflow: visible;
+        padding: 0;
+        background-color: white;
+        z-index: +2;
+    }
+    
+    .respmenu .menu{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background: rgba(87, 46, 229, 0.9);
+        display: block;
+        clear: both;
+        width: 100%;
+        max-height: 0;
+        transition:max-height .2s ease-out;
+        justify-content: unset;
+    }
+
+    .respmenu .menu a, .respmenu .menu label{
+        display: block;
+        padding: 27px;
+        font-size: 15px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .respmenu .navLogo{
+        content: url('../images/logo-mobile.svg');
+        padding: 29px 0 17px 22px;
+        height: 49px;
+        width: 65px;
+        float: left;
+    }
+
+    .respmenu .menuIcon{
+        display: block;
+        padding: 47px 26px 34px 0;
+        position: relative;
+        float: right;
+        cursor: pointer;
+    }
+    
+    .respmenu .menuButton{
+        display: none;
+    }
+    
+    .respmenu .menuButton:checked ~ .menu{
+        max-height: 240px;
+    }
+    
+    .respmenu .menuButton:checked ~ .menuIcon .navIcon{
+        content: url('../images/close.svg');
+    }    
+
+    nav ul li a:hover,nav ul li:hover, nav ul li a:active,nav ul li:active {
+        color: white;
+        text-align: center;
+    }
+
+    .respmenu .menu .divBurger{
+        background: rgba(87, 46, 229, 0.9);
+        height: 500px;
+        width: 100%;
+    }
+    
+    .search, .favs{
+        padding-top: 107px;
+    }
+
+    .search .title{
+        font-size: 25px;
+        padding: 0 12% 24px;
+    }
+
+    .search .searchResults{
+        grid-template-columns: repeat(2,260px);
+    }
+
+    .favs .favsContent .favsContainer{
+        grid-template-columns: repeat(2,260px);
+    }
+
+    .gifOptions{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 560px){
+
+
+
+    /* Search */
+
+    .search .imgHeader{
+        width: 273px;
+    }
+
+    .search .searchBar{
+        width: 300px;
+    }
+
+    .search .searchBar .searchIcon{
+        padding-left: 30px;
+    }
+
+    .search .resetIcon{
+        padding-left: 10px;
+    }
+
+    .search .autocompleteList{
+        width: 266px;
+        padding: 50px 0px 18px 34px;
+    }
+   
+    .search .autocompleteList li{
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #9CAFC3;
+        text-align: left;
+        padding-top: 10px;  
+        padding-left: 12px;
+    }
+    
+    .search .autocompleteList li:first-child{
+        margin-right: 44px;
+        border-top: 1px solid #9CAFC3;
+        
+    }
+    
+    
+    .search .autocompleteList li::marker{
+        padding-right: 15px;
+    }
+
+    .search .searchResults, .favs .favsContent .favsContainer{
+        grid-template-columns: repeat(2,156px);
+        grid-template-rows: minmax(auto,120px);
+        column-gap: 5.6%;
+        row-gap: 25px;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto 0 auto;
+    }
+
+    .search .searchResults .gif, .favs .favsContent .favsContainer .gif{
+        width: 156px;
+        height: 120px;
+        background-size: cover;
+    }
+
+    .trending .gifsTrendContainer .gif{
+        width: 243px;
+        height: 178px;
+    }
+    
+    .overlay .gifMax{
+        max-width: 318px;
+        height: auto;
+        margin: 0 auto 0 auto;
+    }
+
+    .overlay .prevGif, .overlay .nextGif, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
+        display: none;
+    }
+    
+    .overlay .gifMaxUsername{
+        padding: 14px 0 0 35px;
+    }
+    
+    .overlay .maxFav, .overlay .trashBtn{
+        margin: 17px 0 0 40%;
+    }
+    
+    .overlay .maxDownload{
+        margin: 17px 0 0 21px;
+    }
+    
+    .overlay .gifMaxTitle{
+        max-width: 50%;
+        padding-left: 29.5px;
+        margin-top: -10px;
+    }
+
+    .search .trendingTermsContainer h3{
+        font-size: 13px;
+        padding-bottom: 45px;
+        width: 225px;
+        text-align: center;
+    }
+
+    .search .titleTrend{
+        padding: 31px 0 2px;
+        font-size: 18px;
+    }
+
+    .favs .favsTitle{
+        padding-bottom: 0;
+    }
+
+    .favs .favsNoContent img{
+        padding-top: 30px;
+    }
+
+    .favs .favsNoContent .favsMsg{
+        font-size: 18px;
+        width: 250px;
+        text-align: center;
+        padding-bottom: 60px;
+    }
+
+    .trending h2{
+        padding: 46px 0 7px;
+        font-size: 20px;
+    }
+    
+    .trending h3{
+        font-size: 16px;
+    }
+
+    .trending .gifsTrendContainer{
+        height: 250px;
+        padding: 32px 0 0px;
+    }
+
+    footer{
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 196px;
+    }
+
+    footer div{
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    footer div h3{
+        flex-basis: 100%;
+        padding: 0 0 24px 0;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    footer div a{
+        padding: 0 9.5px 0;
+    }
+
+    footer h3{
+        flex-basis: 100%;
+        padding: 0;
+        text-align: center;
+        font-size: 16px;
+    }
+}

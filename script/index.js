@@ -12,6 +12,12 @@ let limit = 12
 
 //Toma los valores obtenidos del fetch y los pasa a la funcion para mostrarlos. 
 //Modifica la pagina para mostrar unicamente lo deseado
+const getSearchResults = async (query, offset, limit) => {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${limit}&q=${query}&offset=${offset}`)
+    const data = await response.json()
+    return data
+}
+
 const searchGifs = async () => {
     autocompleteList.innerHTML= ''
     const gifsSearch = await getSearchResults(searchInput.value, offsetSearch, limit)
@@ -55,6 +61,12 @@ btnVerMas.addEventListener('click', async () => {
 const autocompleteList = document.querySelector('.autocompleteList')
 const searchIcon = document.querySelector('.searchIcon')
 const suggestionItem = document.querySelector('.suggestionItem')
+
+const autocompleteFetch = async (query) => {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${API_KEY}&limit=5&q=${query}`)
+    const data = await response.json()
+    return data.data
+}
 
 //Cada vez que presiona una tecla se realiza el fetch para obtener las palabras sugeridas
 //Pasa la lista a la funcion que las muestra
@@ -131,7 +143,7 @@ const showGifs = gifsSearch => {
         gifSearched.classList.add('gif')
         searchResults.appendChild(gifSearched)
         gifSearched.style.backgroundImage=urlGif
-        gifSearched.style.backgroundSize = '260px 200px'   
+        gifSearched.style.backgroundSize = 'cover'
         gifsOptions(gifSearched, gifSearch.username, gifSearch.title, gifSearch.id, gifSearch.images.original.url)
     })
 }

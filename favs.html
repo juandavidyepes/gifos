@@ -9,17 +9,16 @@
     <title>Document</title>
 </head>
 <body>              
-    <nav>
+    <nav class="respmenu">
         <a id="navLogo" href='index.html'><img class="navLogo" src="images/logo-desktop.svg" alt="logo"></a>
-        <ul>
+        <input type="checkbox" class="menuButton" id="menuButton">
+        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/burger.svg"></label>
+        <ul class="menu">
             <li><input type="checkbox" class="darkModeButton" id="darkModeButton"><label for="darkModeButton">MODO NOCTURNO</label></li>
             <li><a id="favsButton" href="favs.html">FAVORITOS</a></li>
             <li><a id="myGifsButton" href="myGifs.html">MIS GIFOS</a></li>
-            <li><a href='createGif.html'><img src="images/button-crear-gifo.svg"></a></li>
-            </ul>
-        <input type="checkbox" class="menuButton" id="menuButton">
-        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/burger.svg"></span></label>
-        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/close.svg"></span></label>
+            <li><div class='divBurger'><a href='createGif.html'><img class="createImg" src="images/button-crear-gifo.svg"></a></div></li>
+        </ul>
     </nav>
     <main>
         <section class="favs">
@@ -55,7 +54,6 @@
         <h3>© GIFOS 2020 All Rights Reserveds</h3>
     </footer>
     <script src="script\trending&options.js"></script>    
-    <script src="script\giphyAPI.js"></script>    
     <script src="script\favs.js"></script>    
     <script src="script\darkMode.js"></script>  
 </body>

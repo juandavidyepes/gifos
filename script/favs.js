@@ -21,8 +21,7 @@ if (favsList.length == 0){
             favsContainer.appendChild(gifFav)
             gifFav.classList.add('gif')
             gifFav.style.backgroundImage=favGif.url
-            gifFav.style.backgroundSize = '260px 200px'  
-            
+            gifFav.style.backgroundSize = 'cover'
             gifsOptions(gifFav, favGif.username, favGif.title, favGif.id, favGif.urlAlone)
             if(i==favsList.length-1){buttonContainerFavs.style.display = 'none'}
         }

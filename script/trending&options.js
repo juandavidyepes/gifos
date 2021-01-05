@@ -27,7 +27,7 @@ showTrendings = trendings => {
         gifTrend.classList.add('gif')
         gifsTrendContainer.insertBefore(gifTrend, gifsTrendContainer.childNodes[2])
         gifTrend.style.backgroundImage=urlGifTrend
-        gifTrend.style.backgroundSize = '357px 275px'
+        gifTrend.style.backgroundSize = 'cover'
         gifsOptions(gifTrend, trending.username, trending.title, trending.id, trending.images.original.url)
     })
 }
@@ -82,6 +82,7 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL) {
         }
         download(addDownloadBtn, gifInfo)
         expand(addmaxBtn, gifInfo)
+        expand(gif, gifInfo)
     })
     gif.addEventListener('mouseleave', async () => {
         gif.innerHTML=''
@@ -193,6 +194,7 @@ function expand (addmaxBtn, gifInfo){
         nextGif.addEventListener('click', () => {
             getNextGif()
         })
+
     })
 }
 
