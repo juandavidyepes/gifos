@@ -773,7 +773,7 @@ footer div .instagram:hover{
 
     .respmenu .navLogo{
         content: url('../images/logo-mobile.svg');
-        padding: 29px 0 17px 22px;
+        padding: 29px 22px 17px 22px;
         height: 49px;
         width: 65px;
         float: left;
@@ -781,7 +781,7 @@ footer div .instagram:hover{
 
     .respmenu .menuIcon{
         display: block;
-        padding: 47px 26px 34px 0;
+        padding: 47px 26px 34px 26px;
         position: relative;
         float: right;
         cursor: pointer;
