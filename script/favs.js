@@ -15,14 +15,15 @@ if (favsList.length == 0){
         for(i=start; i<limit; i++){
             if(favsList[i]===undefined){break;}
             var favGif = favsList[i]    
-            console.log(favsList.length-2)
-            console.log(i)
-            const gifFav = document.createElement('div')
-            favsContainer.appendChild(gifFav)
+            const gifFavContainer = document.createElement('div')
+            const gifFav = document.createElement('img')
+            favsContainer.appendChild(gifFavContainer)
+            gifFavContainer.appendChild(gifFav)
+            gifFavContainer.classList.add('gifContainer')
             gifFav.classList.add('gif')
-            gifFav.style.backgroundImage=favGif.url
-            gifFav.style.backgroundSize = 'cover'
-            gifsOptions(gifFav, favGif.username, favGif.title, favGif.id, favGif.urlAlone)
+            console.log(favGif.url)
+            gifFav.src=favGif.url
+            gifsOptions(gifFav, favGif.username, favGif.title, favGif.id, favGif.urlAlone, gifFavContainer)
             if(i==favsList.length-1){buttonContainerFavs.style.display = 'none'}
         }
     }

@@ -19,24 +19,33 @@ const getSearchResults = async (query, offset, limit) => {
 }
 
 const searchGifs = async () => {
+    const gifFound = document.querySelector('.gifFound')
     autocompleteList.innerHTML= ''
     const gifsSearch = await getSearchResults(searchInput.value, offsetSearch, limit)
     searchResults.innerHTML=''
     showGifs(gifsSearch)
     offsetSearch+=12
-    titleTrend.textContent=searchInput.value
-    titleTrend.style.fontSize='35px'
-    titleTrend.style.padding='137px 0 60px'
+    
     if (searchResults.innerHTML==''){
         searchNoContent.style.display='flex'
         trendingTermsContainer.style.display='block'
         buttonContainer.style.display='none'
         searchResults.style.display='none'
+        gifFound.textContent=searchInput.value
+        gifFound.style.padding='137px 0 109px'
+        gifFound.style.fontSize='30px'
+        titleTrend.textContent='Trending:'
+        titleTrend.style.padding='73px 0 7px'
+        titleTrend.style.fontSize='18px'
     } else{
+        titleTrend.style.display='block'
         searchNoContent.style.display='none'
         searchResults.style.display='grid'
         buttonContainer.style.display='block'
         trendingTermsContainer.style.display='none'
+        titleTrend.textContent=searchInput.value
+        titleTrend.style.padding='63px 0 95px'
+        titleTrend.style.fontSize='35px'
     }
     removeAutocomplete()    
 }
@@ -128,7 +137,6 @@ searchInput.addEventListener('keyup', async () => {
     })
     if (searchInput.value == ''){
         searchGrey.style.display='none'
-        searchInput.style.paddingLeft = '50px'
         searchIcon.style.display = 'block'
         resetIcon.style.display = 'none'
     }
@@ -137,17 +145,17 @@ searchInput.addEventListener('keyup', async () => {
 //Funcion para mostrar los gifs obtenidos en una grid, creando un div en cada espacio y asignando la imagen al fondo. Llamo la funcion para mostrar las opciones en cada uno
 const showGifs = gifsSearch => {
     gifsSearch.data.forEach(gifSearch => {
-        console.log(gifSearch)
-        const gifSearched = document.createElement('div')
-        const urlGif = "url('"+gifSearch.images.original.url+"')"
+        const gifSearchedContainer = document.createElement('div')
+        const gifSearched = document.createElement('img')
+        const urlGif =gifSearch.images.original.url
+        gifSearchedContainer.classList.add('gifContainer')
         gifSearched.classList.add('gif')
-        searchResults.appendChild(gifSearched)
-        gifSearched.style.backgroundImage=urlGif
-        gifSearched.style.backgroundSize = 'cover'
-        gifsOptions(gifSearched, gifSearch.username, gifSearch.title, gifSearch.id, gifSearch.images.original.url)
+        searchResults.appendChild(gifSearchedContainer)
+        gifSearchedContainer.appendChild(gifSearched)
+        gifSearched.src=urlGif
+        gifsOptions(gifSearched, gifSearch.username, gifSearch.title, gifSearch.id, gifSearch.images.original.url, gifSearchedContainer)
     })
 }
-
 
 /*  Trending Terms Endpoint */
 const trendingTermsContainer = document.querySelector('.trendingTermsContainer')

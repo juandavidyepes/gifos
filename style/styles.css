@@ -5,6 +5,7 @@
     padding: 0;
 }
 
+
 /***     NAV        ***/
 
 nav{
@@ -198,7 +199,6 @@ nav .darkModeButton{
     
 }
 
-
 .search .autocompleteList li::marker{
     padding-right: 15px;
 }
@@ -272,6 +272,18 @@ nav .darkModeButton{
     font-size: 22px;
     color: #50E3C2;
     text-align: center;
+    padding-bottom: 149px;
+}
+
+.search .searchNoContent .gifFound{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #572EE5;
+    font-size: 35px;
+    width: 338px;
+    border-top: solid 1px #9CAFC3;
 }
 
 /***    FAVS        ***/
@@ -377,26 +389,21 @@ nav .darkModeButton{
     grid-template-rows: repeat(2,200px);
     column-gap: 2%;
     row-gap: 35px;
+    padding-bottom: 78px;
 }
 
-.myGifs .mygifsContent .mygifsContainer img{
+.myGifs .mygifsContent .mygifsContainer .gif{
     width: 260px;
     height: 200px;
 }
 
-.myGifs .mygifsContent .buttonContainer{
-    padding-top: 78px;
+.myGifs .mygifsContent .buttonContainerMyGifs{
+    padding: 0 0 79px;
+    display: none;
 }
 
-.myGifs .mygifsContent .myButton{
-    border: 1px solid #572EE5;
-    border-radius: 25px;
-    width: 127px;
-    height: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    color: #572EE5;
+.myGifs .mygifsContent .buttonContainerMyGifs .imgVerMas:hover{
+    content: url("../images/CTA-ver-mas-hover.svg");
 }
 
 .myGifs .mygifsNoContent{
@@ -426,6 +433,7 @@ nav .darkModeButton{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: inherit;
     overflow-x: scroll;
 }
 
@@ -435,6 +443,7 @@ nav .darkModeButton{
     font-weight: bold;
     font-size: 25px;
     color: #572EE5;
+    text-align: center;
 }
 
 .trending h3{
@@ -452,13 +461,18 @@ nav .darkModeButton{
     justify-content: center;
 }
 
-.trending .gifsTrendContainer .gif, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow {
+.trending .gifsTrendContainer .gifContainer{
+    width: 357px;
+    height: 275px;
+}
+
+.trending .gifsTrendContainer .gifContainer, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow {
     margin-right: 23px;
 }
 
 .trending .gifsTrendContainer .gif{
-    width: 357px;
-    height: 275px;
+    width: 100%;
+    height: 100%;
 }
 
 .trending .gifsTrendContainer .imgLeftArrow:hover{
@@ -514,18 +528,25 @@ footer div .instagram:hover{
 
 /*** GIFS OPTIONS ***/
 
+.gifContainer{
+    position: relative;
+    height: inherit;
+    width: inherit;
+}
 
 .gifOptions{
+    left: 0;
+    top: 0;
     padding: 0;
     background: rgba(87, 46, 229, 0.6);
     z-index: +1;
-    height: inherit;
-    width: inherit;
-    position: relative;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .gifOptions img{
-    padding: 10px 10px 0 0;
+    margin: 10px 10px 0 0;
     float:right;
     opacity: 1;
 }
@@ -538,8 +559,17 @@ footer div .instagram:hover{
     content: url("../images/icon-fav-hover.svg");
 }
 
-.gifOptions .addFavsBtn:active{
+.gifOptions .removeFavBtn{
     content: url("../images/icon-fav-active.svg");
+    display: none;
+    margin: auto 0 0 auto;
+    padding: 10px 0 0 9px;
+    margin: 10px 10px 0 0;
+    background: white;
+    border: solid 0 white;
+    border-radius: 6px;
+    width: 22px;
+    height: 22px;
 }
 
 .gifOptions .trashBtn{
@@ -655,7 +685,7 @@ footer div .instagram:hover{
     padding: 27px 0 0 24.7%;
 }
 
-.overlay .maxFav, .overlay .trashBtn{
+.overlay .maxFav, .overlay .removeFavBtn{
     align-self: flex-start;
     margin: 27px 0 0 40%;
 }
@@ -687,7 +717,7 @@ footer div .instagram:hover{
     content: url("../images/icon-fav-hover.svg");
 }
 
-.overlay .maxFav, .overlay .trashBtn, .overlay .maxDownload {
+.overlay .maxFav, .overlay .removeFavBtn, .overlay .maxDownload {
     border: solid 2px #CED7E1;
     border-radius: 6px;
 }
@@ -696,13 +726,14 @@ footer div .instagram:hover{
     content: url("../images/icon-fav-active.svg");
 }
 
-.overlay .trashBtn{
-    content: url("../images/icon-trash-normal.svg");
+.overlay .removeFavBtn{
+    content: url("../images/icon-fav-active.svg");
     display: none;
-}
-
-.overlay .trashBtn:hover{
-    content: url("../images/icon-trash-hover.svg");
+    margin: auto 0 0 auto;
+    padding: 10px 0 0 9px;
+    margin: 27px 10px 0 40%;
+    width: 22px;
+    height: 22px;
 }
 
 .overlay .maxDownload:hover{
@@ -720,12 +751,36 @@ footer div .instagram:hover{
 }
 
 @media only screen and (max-width: 1100px){
+
     .search .searchResults{
         grid-template-columns: repeat(3,260px);
     }
 
     .favs .favsContent .favsContainer{
         grid-template-columns: repeat(3,260px);
+    }
+
+    .overlay .gifMax{
+        width: 50%;
+        height: auto;
+    }
+
+    .trending .gifsTrendContainer{
+        padding: 53px 0 0 0;
+    }
+    
+    .trending .gifsTrendContainer .gifContainer{
+        width: 243px;
+        height: 178px;
+    }
+    
+    .trending .gifsTrendContainer .gif{
+        width: 100%;
+        height: 100%;
+    }
+
+    .trending .gifsTrendContainer{
+        padding: 53px 0 0 0;
     }
 }
 
@@ -792,7 +847,7 @@ footer div .instagram:hover{
     }
     
     .respmenu .menuButton:checked ~ .menu{
-        max-height: 240px;
+        min-height: 100vh;
     }
     
     .respmenu .menuButton:checked ~ .menuIcon .navIcon{
@@ -803,13 +858,11 @@ footer div .instagram:hover{
         color: white;
         text-align: center;
     }
-
-    .respmenu .menu .divBurger{
-        background: rgba(87, 46, 229, 0.9);
-        height: 500px;
-        width: 100%;
-    }
     
+    .respmenu .menu .divBurger a img{
+        display: none;
+    }
+
     .search, .favs{
         padding-top: 107px;
     }
@@ -832,7 +885,7 @@ footer div .instagram:hover{
     }
 
     .overlay .gifMax{
-        max-width: 318px;
+        max-width: 50%;
         height: auto;
         margin: 0 auto 0 auto;
     }
@@ -841,22 +894,20 @@ footer div .instagram:hover{
         display: none;
     }
     
-    .overlay .gifMaxUsername{
-        padding: 14px 0 0 35px;
+    
+    .trending .gifsTrendContainer{
+        padding: 53px 0 0 0;
+        align-self: flex-start;
     }
     
-    .overlay .maxFav, .overlay .trashBtn{
-        margin: 17px 0 0 30%;
+    .trending .gifsTrendContainer .gifContainer{
+        width: 243px;
+        height: 178px;
     }
     
-    .overlay .maxDownload{
-        margin: 17px 0 0 21px;
-    }
-    
-    .overlay .gifMaxTitle{
-        max-width: 50%;
-        padding-left: 29.5px;
-        margin-top: -10px;
+    .trending .gifsTrendContainer .gif{
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -943,10 +994,10 @@ footer div .instagram:hover{
     }
     
     .overlay .gifMaxUsername{
-        padding: 14px 0 0 35px;
+        padding: 14px 0 0 9.3%;
     }
     
-    .overlay .maxFav, .overlay .trashBtn{
+    .overlay .maxFav, .overlay .removeFavBtn{
         margin: 17px 0 0 30%;
     }
     
@@ -955,8 +1006,8 @@ footer div .instagram:hover{
     }
     
     .overlay .gifMaxTitle{
-        max-width: 50%;
-        padding-left: 29.5px;
+        max-width: 40%;
+        padding-left: 7.9%;
         margin-top: -10px;
     }
 
@@ -1030,4 +1081,5 @@ footer div .instagram:hover{
         text-align: center;
         font-size: 16px;
     }
+
 }

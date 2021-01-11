@@ -6,6 +6,12 @@ if (localStorage.getItem('favGifs') == null){
     var favsList = JSON.parse(localStorage.getItem('favGifs'))
 }
 
+if (localStorage.getItem('myGifs') == null){
+    var myGifsList = []
+}else{
+    var myGifsList = JSON.parse(localStorage.getItem('myGifs'))
+}
+
 const getTrendings = async () => {
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=3`);
     const data = await response.json()
@@ -22,37 +28,39 @@ const gifsTrendContainer = document.querySelector('.gifsTrendContainer')
 showTrendings = trendings => {
     trendings.forEach(trending => {
         console.log(trending)
-        const gifTrend = document.createElement('div')
-        const urlGifTrend = "url('"+trending.images.original.url+"')"
+        const gifTrendContainer = document.createElement('div')
+        const gifTrend = document.createElement('img')
+        const urlGifTrend =trending.images.original.url
+        gifTrendContainer.classList.add('gifContainer')
         gifTrend.classList.add('gif')
-        gifsTrendContainer.insertBefore(gifTrend, gifsTrendContainer.childNodes[2])
-        gifTrend.style.backgroundImage=urlGifTrend
-        gifTrend.style.backgroundSize = 'cover'
-        gifsOptions(gifTrend, trending.username, trending.title, trending.id, trending.images.original.url)
+        gifsTrendContainer.insertBefore(gifTrendContainer, gifsTrendContainer.childNodes[2])
+        gifTrendContainer.appendChild(gifTrend)
+        gifTrend.src=urlGifTrend
+        gifsOptions(gifTrend, trending.username, trending.title, trending.id, trending.images.original.url, gifTrendContainer)
     })
 }
 
 // GIFS OPTIONS
 
-function gifsOptions (gif, username, gifTitle, gifID, gifURL) {
+function gifsOptions (gif, username, gifTitle, gifID, gifURL, gifContainer) {
     gif.addEventListener('mouseenter', async () => {
         const gifOptions = document.createElement('div') 
         gifOptions.classList.add('gifOptions')
-        gif.appendChild(gifOptions)
+        gifContainer.appendChild(gifOptions)
         const addFavsBtn = document.createElement('img')
-        const addTrashBtn = document.createElement('img')
+        const removeFavBtn = document.createElement('img')
         const addDownloadBtn = document.createElement('img')
         const addmaxBtn = document.createElement('img')
         const adduser = document.createElement('p')
         const addtitleGif = document.createElement('p')
         gifOptions.appendChild(addmaxBtn)
         gifOptions.appendChild(addDownloadBtn)
-        gifOptions.appendChild(addTrashBtn)
+        gifOptions.appendChild(removeFavBtn)
         gifOptions.appendChild(addFavsBtn)
         gifOptions.appendChild(adduser)
         gifOptions.appendChild(addtitleGif)
         addFavsBtn.classList.add('addFavsBtn')
-        addTrashBtn.classList.add('trashBtn')
+        removeFavBtn.classList.add('removeFavBtn')
         addDownloadBtn.classList.add('downloadBtn')
         addmaxBtn.classList.add('maxBtn')
         adduser.classList.add('user')
@@ -64,7 +72,7 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL) {
 
         const gifToFavs = gifOptions.parentNode
         let gifInfo = {
-            url: gifToFavs.style.backgroundImage,
+            url: gifURL,
             username: userIF,
             title: gifTitle,
             id: gifID,
@@ -74,50 +82,59 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL) {
         if(favsList.some(e => e.id === gifInfo.id)){
             console.log('ya esta')
             addFavsBtn.style.display='none'
-            addTrashBtn.style.display='block'
-            removeFavGif(addFavsBtn, addTrashBtn, gifInfo)
+            removeFavBtn.style.display='block'
+            removeFavGif(addFavsBtn, removeFavBtn, gifInfo)
         }else{
-            addFavGif(addFavsBtn, addTrashBtn, gifInfo)
+            addFavGif(addFavsBtn, removeFavBtn, gifInfo)
             console.log('no esta')
         }
+
         download(addDownloadBtn, gifInfo)
-        expand(addmaxBtn, gifInfo)
-        expand(gif, gifInfo)
+
+        const screenSize = window.matchMedia('(max-width: 900px)')
+
+        if (screenSize.matches){expand(gif, gifInfo)}
+        else{expand(addmaxBtn, gifInfo)}
+
+        gifOptions.addEventListener('mouseleave', async () => {
+        gifOptions.remove()
+        })
     })
-    gif.addEventListener('mouseleave', async () => {
-        gif.innerHTML=''
-    })
+    
 }
 
 // ADD FAVORITE GIF
 
-function addFavGif (favBtn, trashBtn, gifInfo) {
-    
+function addFavGif (favBtn, removeFavBtn, gifInfo) {
     favBtn.addEventListener('click', async () =>{
         favsList.push(gifInfo)
         localStorage.setItem('favGifs', JSON.stringify(favsList))
+        
         favBtn.style.display='none'
-        trashBtn.style.display='block'
-        removeFavGif(trashBtn, favBtn)
+        removeFavBtn.style.display='block'
+        removeFavGif(removeFavBtn, favBtn)
+
+        localStorage.setItem('myGifs', JSON.stringify(favsList))
+        myGifsList.push(gifInfo)
 
     })
 }
 
-function removeFavGif (favBtn, trashBtn, gifInfo) {
-    trashBtn.addEventListener('click', async () => {
+function removeFavGif (favBtn, removeFavBtn, gifInfo) {
+    removeFavBtn.addEventListener('click', async () => {
         const index = favsList.map(function(e){return e.title;}).indexOf(gifInfo.title)
         favsList.splice(index, 1)      
         localStorage.setItem('favGifs', JSON.stringify(favsList))
         favBtn.style.display='block'
-        trashBtn.style.display='none'
+        removeFavBtn.style.display='none'
         location.reload()
     })
 }
 
 function download (downloadBtn, gifInfo){
     downloadBtn.addEventListener('click', async () => {
-        console.log('D E S C A R G A N D O')
-        downloadBtn.download = gifInfo.urlAlone;
+        console.log(gifInfo.url)
+        window.open(gifInfo.urlAlone)
     })
 }
 
@@ -157,8 +174,8 @@ function expand (addmaxBtn, gifInfo){
         flexBreak.style.flexBasis = '100%'
         flexBreak.style.height = '0'
 
-        let addTrashBtn = document.createElement('img')
-        addTrashBtn.classList.add('trashBtn')
+        let removeFavBtn = document.createElement('img')
+        removeFavBtn.classList.add('removeFavBtn')
 
         document.body.appendChild(overlay)
         overlay.appendChild(close)
@@ -168,47 +185,43 @@ function expand (addmaxBtn, gifInfo){
         overlay.appendChild(flexBreak)
         overlay.appendChild(username)
         overlay.appendChild(maxFav)
-        overlay.appendChild(addTrashBtn)
+        overlay.appendChild(removeFavBtn)
         overlay.appendChild(maxDownload)
         overlay.appendChild(title)       
 
         if(favsList.some(e => e.id === gifInfo.id)){
             console.log('ya esta')
             maxFav.style.display='none'
-            addTrashBtn.style.display='block'
-            removeFavGif(maxFav, addTrashBtn, gifInfo)
+            removeFavBtn.style.display='block'
+            removeFavGif(maxFav, removeFavBtn, gifInfo)
         }else{
-            addFavGif(maxFav, addTrashBtn, gifInfo)
+            addFavGif(maxFav, removeFavBtn, gifInfo)
             console.log('no esta')
         }
         download(maxDownload, gifInfo)
 
         close.addEventListener('click', () => {
             overlay.remove()
+            gifOptions.remove()
         })
 
         prevGif.addEventListener('click', () => {
-            getPrevGif()
+            getPrevGif(prevGif)
         })
 
         nextGif.addEventListener('click', () => {
-            getNextGif()
+            getNextGif(nextGif)
         })
 
     })
+    addmaxBtn
 }
 
 function getPrevGif () {
-    prevGif.addEventListener('click', () => {
-        getPrevGif()
-    })
-
-    console.log('PREV GIF')
+    console.log('Previous GIF')  
 }
 
 function getNextGif () {
-    nextGif.addEventListener('click', () => {
-            getNextGif()
-        })
-    console.log('PREV GIF')
+    
+    console.log('Next GIF')
 }
