@@ -17,14 +17,33 @@
             <li><input type="checkbox" class="darkModeButton" id="darkModeButton"><label for="darkModeButton">MODO NOCTURNO</label></li>
             <li><a id="favsButton" href="favs.html">FAVORITOS</a></li>
             <li><a id="myGifsButton" href="myGifs.html">MIS GIFOS</a></li>
-            <li><div class='divBurger'><a href='createGif.html'><img class="createImg" src="images/button-crear-gifo.svg"></a></div></li>
+            <li><div class='divBurger'><a href='createGif.html'><img class="createImg" src="images/CTA-crear-gifo-active.svg"></a></div></li>
         </ul>
     </nav>
     <main>
-        <section class="createGif">
-            
+        <section class='createGif'>
+            <div class='createTop'>
+                <img class='cameraImg' src="images/camara.svg" alt="Camara">
+                <img src="images/element-luz-camara.svg" alt="Luz">
+                <div class='bigBox'>
+                    <div class='smallBox'>
+                        <div class='borderlessBox'>
+                            <h1 class='title'>Aquí podrás<br>crear tus propios <span class='word'> GIFOS</span></h1>
+                            <h2 class='subtitle'>¡Crea tu GIFO en sólo 3 pasos!<br>(sólo necesitas una cámara para grabar un video)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="createBottom">
+                <img class='paso1' src="images/paso-a-paso1.svg" alt="Paso1">
+                <img class='paso2' src="images/paso-a-paso2.svg" alt="Paso2">
+                <img class='paso3' src="images/paso-a-paso3.svg" alt="Paso3">
+                <img class='peliculaImg' src="images/pelicula.svg" alt="Pelicula">
+            </div>
+            <div class="buttonContainerMyGifs">
+                <div class="btnAction" type="button" >COMENZAR</div>
+            </div>   
         </section>
-
     </main>
     <footer>
         <div>
@@ -35,8 +54,7 @@
         </div>
         <h3>© GIFOS 2020 All Rights Reserveds</h3>
     </footer>
-    <script src="script\index.js"></script>    
-    <script src="script\giphyAPI.js"></script>    
+    <script src="script\createGif.js"></script>  
     <script src="script\darkMode.js"></script>  
 </body>
 </html>

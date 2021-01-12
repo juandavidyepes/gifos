@@ -2,8 +2,9 @@ const mygifsContainer = document.querySelector('.mygifsContainer')
 const mygifsNoContent = document.querySelector('.mygifsNoContent')
 const buttonContainerMyGifs = document.querySelector('.buttonContainerMyGifs')
 
+let myGifsList = []
 console.log(myGifsList)
-if (myGifsList.length == 0){
+if (favsList.length == 0){
     console.log('ta vacio')
     mygifsNoContent.style.display = 'flex'
     buttonContainerMyGifs.style.display = 'none'
@@ -11,10 +12,10 @@ if (myGifsList.length == 0){
 }else{
     var start = 0
     var limit = 12
-    function showFavs (myGifsList, start, limit, buttonContainerMyGifs) {
+    function showFavs (favsList, start, limit, buttonContainerMyGifs) {
         for(i=start; i<limit; i++){
-            if(myGifsList[i]===undefined){break;}
-            var myGif = myGifsList[i]    
+            if(favsList[i]===undefined){break;}
+            var myGif = favsList[i]    
             const gifMyContainer = document.createElement('div')
             const gifMy = document.createElement('img')
             mygifsContainer.appendChild(gifMyContainer)
@@ -24,18 +25,18 @@ if (myGifsList.length == 0){
             console.log(myGif.url)
             gifMy.src=myGif.url
             gifsOptions(gifMy, myGif.username, myGif.title, myGif.id, myGif.urlAlone, gifMyContainer)
-            if(i==myGifsList.length-1){buttonContainerMyGifs.style.display = 'none'}
+            if(i==favsList.length-1){buttonContainerMyGifs.style.display = 'none'}
         }
     }
 
-    showFavs(myGifsList, start, limit, buttonContainerMyGifs)
+    showFavs(favsList, start, limit, buttonContainerMyGifs)
 
-    if(myGifsList.length > 12){
+    if(favsList.length > 12){
         buttonContainerMyGifs.style.display = 'block'
         buttonContainerMyGifs.addEventListener('click', async () =>{
             limit+=12
             start+=12
-            showFavs(myGifsList, start, limit, buttonContainerMyGifs)
+            showFavs(favsList, start, limit, buttonContainerMyGifs)
         })
     }
 

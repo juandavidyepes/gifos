@@ -228,6 +228,8 @@ nav .darkModeButton{
     align-items: center;
     justify-items: center;
     margin: 0 auto 0 auto;
+    justify-content: center;
+    width: 100%;
 }
 
 .search .searchResults .gif{
@@ -311,6 +313,7 @@ nav .darkModeButton{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .favs .favsContent .favsContainer{
@@ -320,6 +323,8 @@ nav .darkModeButton{
     column-gap: 2%;
     row-gap: 35px;
     padding-bottom: 78px;
+    justify-content: center;
+    width: 100%;
 }
 
 .favs .favsContent .favsContainer .gif{
@@ -390,6 +395,8 @@ nav .darkModeButton{
     column-gap: 2%;
     row-gap: 35px;
     padding-bottom: 78px;
+    justify-content: center;
+    width: 100%;
 }
 
 .myGifs .mygifsContent .mygifsContainer .gif{
@@ -484,6 +491,121 @@ nav .darkModeButton{
 }
 
 /***    ADD GIFS    ***/
+
+.createGif{
+    padding-top: 4px;
+}
+
+.createGif .createTop{
+    display: flex;
+}
+
+.createTop .cameraImg{
+    padding-left: 10.8%;
+    width: 8.5%;
+}
+
+.createGif .createTop .bigBox{
+    border: solid 1px #572EE5;
+    width: 47.8%;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.createGif .createTop .smallBox{
+    border: solid 1px #50E3C2;
+    width: 94.19%;
+    height: 352px;
+}
+
+.createGif .createTop .borderlessBox{
+    border: solid 1px white;
+    width: 100%;
+    height: 100%;
+    margin: -1px;
+    border-radius: 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.createGif .createTop .title{
+   
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 35px;
+    padding-bottom: 3px;
+}
+
+
+.createGif .createTop .title .word{
+    color: #50E3C2;
+}
+
+.createGif .createTop .subtitle{
+    
+    font-family: 'Roboto', sans-serif;    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    line-height: 29px;
+}
+
+.createGif .createBottom{
+    display: flex;
+    align-items: center;
+}
+
+.createGif .createBottom .paso1{
+    padding-left: 45%;
+}
+
+.createGif .createBottom .paso2{
+    padding: 0 1.8% 0;
+}
+
+.createGif .createBottom .peliculaImg{
+    margin: 0 11.6% 0 auto ;
+}
+
+.createGif .buttonContainerMyGifs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55.3%;
+    margin: 0 auto 0;
+    padding-top: 20.1px;
+    border-top: solid 6.9px #572EE5;
+}
+
+.createGif .buttonContainerMyGifs .btnAction:hover{
+    border: 1px solid #572EE5;
+    background-color: #572EE5;
+    color: white;
+}
+
+.createGif .buttonContainerMyGifs .btnAction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    height: 50px;
+    width: 127px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+}
+
 /***    FOOTER      ***/
 
 footer{
@@ -752,11 +874,7 @@ footer div .instagram:hover{
 
 @media only screen and (max-width: 1100px){
 
-    .search .searchResults{
-        grid-template-columns: repeat(3,260px);
-    }
-
-    .favs .favsContent .favsContainer{
+    .search .searchResults, .favs .favsContent .favsContainer, .myGifs .mygifsContent .mygifsContainer{
         grid-template-columns: repeat(3,260px);
     }
 
@@ -863,7 +981,7 @@ footer div .instagram:hover{
         display: none;
     }
 
-    .search, .favs{
+    .search, .favs, .myGifs{
         padding-top: 107px;
     }
 
@@ -872,11 +990,7 @@ footer div .instagram:hover{
         padding: 0 12% 24px;
     }
 
-    .search .searchResults{
-        grid-template-columns: repeat(2,260px);
-    }
-
-    .favs .favsContent .favsContainer{
+    .search .searchResults, .favs .favsContent .favsContainer, .myGifs .mygifsContent .mygifsContainer{
         grid-template-columns: repeat(2,260px);
     }
 
@@ -957,12 +1071,11 @@ footer div .instagram:hover{
         
     }
     
-    
     .search .autocompleteList li::marker{
         padding-right: 15px;
     }
 
-    .search .searchResults, .favs .favsContent .favsContainer{
+    .search .searchResults, .favs .favsContent .favsContainer, .myGifs .mygifsContent .mygifsContainer{
         grid-template-columns: repeat(2,156px);
         grid-template-rows: minmax(auto,120px);
         column-gap: 5.6%;
@@ -972,7 +1085,7 @@ footer div .instagram:hover{
         margin: 0 auto 0 auto;
     }
 
-    .search .searchResults .gif, .favs .favsContent .favsContainer .gif{
+    .search .searchResults .gif, .favs .favsContent .favsContainer .gif, .myGifs .mygifsContent .mygifsContainer .gif{
         width: 156px;
         height: 120px;
         background-size: cover;

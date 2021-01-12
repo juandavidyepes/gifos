@@ -6,12 +6,6 @@ if (localStorage.getItem('favGifs') == null){
     var favsList = JSON.parse(localStorage.getItem('favGifs'))
 }
 
-if (localStorage.getItem('myGifs') == null){
-    var myGifsList = []
-}else{
-    var myGifsList = JSON.parse(localStorage.getItem('myGifs'))
-}
-
 const getTrendings = async () => {
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=3`);
     const data = await response.json()
@@ -109,13 +103,9 @@ function addFavGif (favBtn, removeFavBtn, gifInfo) {
     favBtn.addEventListener('click', async () =>{
         favsList.push(gifInfo)
         localStorage.setItem('favGifs', JSON.stringify(favsList))
-        
         favBtn.style.display='none'
         removeFavBtn.style.display='block'
         removeFavGif(removeFavBtn, favBtn)
-
-        localStorage.setItem('myGifs', JSON.stringify(favsList))
-        myGifsList.push(gifInfo)
 
     })
 }
