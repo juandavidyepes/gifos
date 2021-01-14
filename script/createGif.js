@@ -79,7 +79,7 @@ const getStreamAndRecord = () => {
                     const form = new FormData()
                     form.append('file', blob, 'ungif.gif')
                     console.log(form.get('file'))
-                    const response = await fetch('https://upload.giphy.com/v1/gifs?api_key=6PV2N10vETG1bgBD09emUXTw0q0fJkGQ',{
+                    const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`,{
                       method: 'POST',
                       body: form
                     });

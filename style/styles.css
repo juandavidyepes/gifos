@@ -806,7 +806,7 @@ footer div .instagram:hover{
     right:0;
     top:0;
     bottom:0;
-    z-index: +2;
+    z-index: +5;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -958,7 +958,7 @@ footer div .instagram:hover{
         overflow: visible;
         padding: 0;
         background-color: white;
-        z-index: +2;
+        z-index: +5;
     }
     
     .respmenu .menu{

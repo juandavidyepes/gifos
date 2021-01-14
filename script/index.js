@@ -177,6 +177,7 @@ getTrendTerms()
 
 //Muestra las palabras trending en el espacio designado, creando h3
 showTrendTerms = trendTerms => {
+    console.log(trendTerms)
     trendTerms = trendTerms.slice(0,5)
     trendTerms = trendTerms.join(', ')
     const trendingTerms = document.createElement('h3')
@@ -185,6 +186,7 @@ showTrendTerms = trendTerms => {
 }
 
 //Sticky search bar
+let screenSize560 = window.matchMedia('(min-width: 900px)')
 
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {stickBar()};
@@ -194,7 +196,7 @@ var sticky = searchBar.offsetTop;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function stickBar() {
-  if (window.pageYOffset >= sticky) {
+  if (window.pageYOffset >= sticky && screenSize560.matches) {
     searchBar.classList.add("stickyBar")
     autocompleteList.classList.add("stickyList")
     searchBar.style.width = '300px'
@@ -218,6 +220,8 @@ function stickBar() {
     searchInput.style.padding = '0 0 0 50px'
     searchIcon.style.padding = '0 0 0 247px'
     resetIcon.style.paddingLeft = '255px'
+    if (searchInput.value == ''){searchInput.style.padding = '0 0 0 50px'}
+    else{searchInput.style.padding = '0 0 0 9px'}
   }
 }
 
