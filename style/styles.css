@@ -1,15 +1,15 @@
 /***    GENERAL     ***/
-
 *{
     margin: 0;
     padding: 0;
 }
 
-
 /***     NAV        ***/
 
 nav{
+    position: fixed;
     height: 90px;
+    width: 100%;
     display: flex;
     top: 0;
     left: 0;
@@ -17,12 +17,14 @@ nav{
     border-top: 5px solid #572EE5;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10.8%
+    overflow: hidden;
+    z-index: +2;
 }
 
 nav .navLogo{   
     height: 59px;
     width: 75px;
+    padding-left: 10.8%;
 }
 
 nav .menu{
@@ -33,6 +35,8 @@ nav .menu{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #572EE5;
+    padding-right: 10.8%;
+
 }
 
 nav li{
@@ -92,7 +96,7 @@ nav .darkModeButton{
 /***    SEARCH     ***/
 
 .search{
-    padding-top: 76px;
+    padding-top: 161px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,7 +128,18 @@ nav .darkModeButton{
     width: 551px;
     display: flex;
     align-items: center;
-    z-index: +1;
+    z-index: +4;
+}
+
+.stickyBar{
+    position: fixed;
+    top: 19px;
+}
+
+.stickyList{
+    position: fixed;
+    top: 70px;
+    background-color: white;
 }
 
 .search .searchIconGrey{
@@ -164,7 +179,7 @@ nav .darkModeButton{
 
 .search .resetIcon{
     display: none;
-    padding-left: 250px;
+    padding-left: 255px;
 }
 
 .search .autocompleteList{
@@ -174,13 +189,10 @@ nav .darkModeButton{
     border-bottom: 1px solid #572EE5;
     border-left: 1px solid #572EE5;
     border-right: 1px solid #572EE5;
-    border-bottom-left-radius: 1px solid #572EE5;
-    border-bottom-right-radius: 1px solid #572EE5;
     border-radius: 27px;
     padding: 50px 0px 18px 44px;
     margin-top: -51px;
-    position: relative;
-    z-index: 0;
+    z-index: +3;
     list-style-image: url('../images/icon-search-grey-small.svg');
 }
 
@@ -291,6 +303,7 @@ nav .darkModeButton{
 /***    FAVS        ***/
 
 .favs{
+    padding-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -367,6 +380,7 @@ nav .darkModeButton{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 90px;
 }
 
 .myGifs .face{
@@ -473,8 +487,12 @@ nav .darkModeButton{
     height: 275px;
 }
 
-.trending .gifsTrendContainer .gifContainer, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow {
+.trending .gifsTrendContainer .gifContainer{
     margin-right: 23px;
+}
+
+.trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
+    margin: 117.5px 23px 117.5px 0;
 }
 
 .trending .gifsTrendContainer .gif{
@@ -493,7 +511,7 @@ nav .darkModeButton{
 /***    ADD GIFS    ***/
 
 .createGif{
-    padding-top: 4px;
+    padding-top: 99px;
 }
 
 .createGif .createTop{
@@ -503,6 +521,10 @@ nav .darkModeButton{
 .createTop .cameraImg{
     padding-left: 10.8%;
     width: 8.5%;
+}
+
+.createTop .light{
+    width: 6.3%;
 }
 
 .createGif .createTop .bigBox{
@@ -562,11 +584,11 @@ nav .darkModeButton{
     align-items: center;
 }
 
-.createGif .createBottom .paso1{
+.createGif .createBottom .step1{
     padding-left: 45%;
 }
 
-.createGif .createBottom .paso2{
+.createGif .createBottom .step2{
     padding: 0 1.8% 0;
 }
 
@@ -604,6 +626,23 @@ nav .darkModeButton{
     color: #572EE5;
     letter-spacing: 0;
     text-align: center;
+}
+
+.createGif video{
+    display: none;
+    width: 73.85%;
+    height: 320px;
+}
+
+.createGif .gifCountContainer{
+    width: 9.1%;
+    margin: 0 0 0 9.6%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
 }
 
 /***    FOOTER      ***/
@@ -874,6 +913,10 @@ footer div .instagram:hover{
 
 @media only screen and (max-width: 1100px){
 
+    nav .navLogo{
+        padding-left: 2%;
+    }
+
     .search .searchResults, .favs .favsContent .favsContainer, .myGifs .mygifsContent .mygifsContainer{
         grid-template-columns: repeat(3,260px);
     }
@@ -1041,10 +1084,11 @@ footer div .instagram:hover{
 
     .search .searchBar .searchInput{
         padding: 0 0 0 15px;
+        width: 205px;
     }
 
     .search .searchBar .searchIcon{
-        padding: 0 0 0 30px;
+        padding: 0 0 0 40px;
     }
 
     .search .resetIcon{

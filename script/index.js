@@ -12,8 +12,8 @@ let limit = 12
 
 //Toma los valores obtenidos del fetch y los pasa a la funcion para mostrarlos. 
 //Modifica la pagina para mostrar unicamente lo deseado
-const getSearchResults = async (query, offset, limit) => {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${limit}&q=${query}&offset=${offset}`)
+const getSearchResults = async (query) => {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${limit}&q=${query}&offset=${offsetSearch}`)
     const data = await response.json()
     return data
 }
@@ -21,7 +21,7 @@ const getSearchResults = async (query, offset, limit) => {
 const searchGifs = async () => {
     const gifFound = document.querySelector('.gifFound')
     autocompleteList.innerHTML= ''
-    const gifsSearch = await getSearchResults(searchInput.value, offsetSearch, limit)
+    const gifsSearch = await getSearchResults(searchInput.value)
     searchResults.innerHTML=''
     showGifs(gifsSearch)
     offsetSearch+=12
@@ -133,12 +133,17 @@ searchInput.addEventListener('keyup', async () => {
         searchIcon.style.display = 'block'
         resetIcon.style.display = 'none'
         searchGrey.style.display = 'none' 
-        searchInput.style.paddingLeft = '54px'
+        let screenSize560 = window.matchMedia('(max-width: 560px)')
+        if (screenSize560.matches){searchInput.style.paddingLeft = '15px'}
+        else{searchInput.style.paddingLeft = '50px'}
     })
     if (searchInput.value == ''){
         searchGrey.style.display='none'
         searchIcon.style.display = 'block'
         resetIcon.style.display = 'none'
+        let screenSize560 = window.matchMedia('(max-width: 560px)')
+        if (screenSize560.matches){searchInput.style.paddingLeft = '15px'}
+        else{searchInput.style.paddingLeft = '54px'}
     }
 })
 
@@ -178,4 +183,42 @@ showTrendTerms = trendTerms => {
     trendingTerms.textContent=trendTerms
     trendingTermsContainer.appendChild(trendingTerms)
 }
+
+//Sticky search bar
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {stickBar()};
+
+// Get the offset position of the navbar
+var sticky = searchBar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function stickBar() {
+  if (window.pageYOffset >= sticky) {
+    searchBar.classList.add("stickyBar")
+    autocompleteList.classList.add("stickyList")
+    searchBar.style.width = '300px'
+    searchBar.style.transform = 'translateX(-250px)'
+    autocompleteList.style.width = '266px'
+    autocompleteList.style.padding = '50px 0px 18px 34px'
+    autocompleteList.style.transform = 'translateX(-250px)'
+    searchInput.style.width = '205px'
+    searchInput.style.padding = '0 0 0 15px'
+    searchIcon.style.padding = '0 0 0 40px'
+    resetIcon.style.paddingLeft = '10px'
+  } else {
+    searchBar.classList.remove("stickyBar");
+    autocompleteList.classList.remove("stickyList");
+    searchBar.style.width = '551px'
+    searchBar.style.transform = 'translateX(0)'
+    autocompleteList.style.width = '507px'
+    autocompleteList.style.transform = 'translateX(0)'
+    autocompleteList.style.padding = '50px 0px 18px 44px'
+    searchInput.style.width = '210px'
+    searchInput.style.padding = '0 0 0 50px'
+    searchIcon.style.padding = '0 0 0 247px'
+    resetIcon.style.paddingLeft = '255px'
+  }
+}
+
 

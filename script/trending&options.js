@@ -85,9 +85,9 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL, gifContainer) {
 
         download(addDownloadBtn, gifInfo)
 
-        const screenSize = window.matchMedia('(max-width: 900px)')
+        const screenSize900 = window.matchMedia('(max-width: 900px)')
 
-        if (screenSize.matches){expand(gif, gifInfo)}
+        if (screenSize900.matches){expand(gif, gifInfo)}
         else{expand(addmaxBtn, gifInfo)}
 
         gifOptions.addEventListener('mouseleave', async () => {
