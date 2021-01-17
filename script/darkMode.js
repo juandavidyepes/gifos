@@ -1,30 +1,41 @@
 //Dark Mode
 
 const setDarkMode = () => {
-    function addClass (element, classToAdd,){
+    function addClassMulti (element, classToAdd,){
         let arrayOfElements = document.querySelectorAll(element)
         arrayOfElements.forEach(element => {
             element.classList.toggle(classToAdd)
         })
     }
-    
-    addClass('.trending','darkTrending')
-    addClass('h1','whiteText')
-    addClass('h2','whiteText')
-    addClass('h3','whiteText')
-    addClass('.navLogo','darkNavLogo')
-    addClass('.darkModeText','navWhiteText')
-    addClass('#favsButton','navWhiteText')
-    addClass('#myGifsButton','navWhiteText')
-    addClass('.darkModeButton','navWhiteText')
-    addClass('.createImg','darkCreateImg')
+
+    function addClass (element, classToAdd,){
+        let singleElement = document.querySelector(element)
+        singleElement.classList.toggle(classToAdd)
+    }
 
     document.body.classList.toggle('darkBody');
-    document.querySelector('nav').classList.toggle('darkBody');
-    document.querySelector('nav').classList.toggle('darkNav');
-    document.querySelector('.searchInput').classList.toggle('darkBody');
-    document.querySelector('.searchBar').classList.toggle('whiteSearchBar');
-    document.querySelector('.searchIcon').classList.toggle('whiteSearchIcon');
+    addClassMulti('.trending','darkTrending')
+    addClassMulti('h1','whiteText')
+    addClassMulti('h2','whiteText')
+    addClassMulti('h3','whiteText')
+    addClassMulti('.navLogo','darkNavLogo')
+    addClassMulti('.darkModeText','navWhiteText')
+    addClassMulti('#favsButton','navWhiteText')
+    addClassMulti('#myGifsButton','navWhiteText')
+    addClassMulti('.createImg','darkCreateImg')
+
+    addClass('nav','darkBody')
+    addClass('nav','darkNav')
+    addClass('.imgLeftArrow','darkLeftArrow')
+    addClass('.imgRightArrow','darkRightArrow')
+
+
+    if(document.body.classList.contains('index')){
+        addClass('.searchInput','darkBody')
+        addClass('.searchBar','whiteSearchBar')
+        addClass('.searchIcon','whiteSearchIcon')
+    }
+    
 }
 
 darkModeButton.addEventListener('change', () => {

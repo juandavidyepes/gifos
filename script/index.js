@@ -28,7 +28,7 @@ const searchGifs = async () => {
     
     if (searchResults.innerHTML==''){
         searchNoContent.style.display='flex'
-        trendingTermsContainer.style.display='block'
+        trendingTermsContainer.style.display='flex'
         buttonContainer.style.display='none'
         searchResults.style.display='none'
         gifFound.textContent=searchInput.value

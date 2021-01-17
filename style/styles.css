@@ -657,6 +657,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 footer div{
@@ -1162,10 +1163,15 @@ footer div .instagram:hover{
         margin-top: -10px;
     }
 
-    .search .trendingTermsContainer h3{
-        font-size: 13px;
+    .search .trendingTermsContainer{
         padding-bottom: 45px;
         width: 225px;
+        text-align: center;
+    }
+       
+
+    .search .trendingTermsContainer h3{
+        font-size: 13px;
         text-align: center;
     }
 

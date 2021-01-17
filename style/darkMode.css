@@ -47,6 +47,23 @@
 }
 
 .whiteSearchIcon{
-    content: url('../images/icon-search-mod-noc.svg');
+    content: url('../images/icon-search-mod-noc.svg') !important;
 }
 
+.darkLeftArrow{
+    content: url('../images/button-slider-left-md-noct.svg');
+}
+
+.darkLeftArrow:hover{
+    content: url('../images/button-slider-left.svg') !important;
+    background-color: white;
+}
+
+.darkRightArrow{
+    content: url('../images/button-slider-right-md-noct.svg');
+}
+
+.darkRightArrow:hover{
+    content: url('../images/button-slider-right.svg') !important;
+    background-color: white;
+}

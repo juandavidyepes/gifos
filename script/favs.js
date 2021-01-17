@@ -2,9 +2,7 @@ const favsContainer = document.querySelector('.favsContainer')
 const favsNoContent = document.querySelector('.favsNoContent')
 const buttonContainerFavs = document.querySelector('.buttonContainerFavs')
 
-console.log(favsList)
 if (favsList.length == 0){
-    console.log('ta vacio')
     favsNoContent.style.display = 'flex'
     buttonContainerFavs.style.display = 'none'
     favsContainer.style.display = 'none'
@@ -21,7 +19,6 @@ if (favsList.length == 0){
             gifFavContainer.appendChild(gifFav)
             gifFavContainer.classList.add('gifContainer')
             gifFav.classList.add('gif')
-            console.log(favGif.url)
             gifFav.src=favGif.url
             gifsOptions(gifFav, favGif.username, favGif.title, favGif.id, favGif.urlAlone, gifFavContainer)
             if(i==favsList.length-1){buttonContainerFavs.style.display = 'none'}
