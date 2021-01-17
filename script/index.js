@@ -177,12 +177,21 @@ getTrendTerms()
 
 //Muestra las palabras trending en el espacio designado, creando h3
 showTrendTerms = trendTerms => {
-    console.log(trendTerms)
     trendTerms = trendTerms.slice(0,5)
-    trendTerms = trendTerms.join(', ')
-    const trendingTerms = document.createElement('h3')
-    trendingTerms.textContent=trendTerms
-    trendingTermsContainer.appendChild(trendingTerms)
+    trendTerms.forEach( function(term, idx, array) {
+        const trendingTerms = document.createElement('h3')
+        trendingTerms.classList.add('trenTerm')
+        const coma = document.createElement('h3')
+        coma.classList.add('trenTerm')
+        trendingTerms.textContent=term
+        trendingTermsContainer.appendChild(trendingTerms)
+        coma.textContent=','
+        if(array.length!=idx+1){trendingTermsContainer.appendChild(coma)}
+        trendingTerms.addEventListener('click', async () => {
+            searchInput.value=trendingTerms.textContent
+            searchGifs()
+        })
+    })
 }
 
 //Sticky search bar

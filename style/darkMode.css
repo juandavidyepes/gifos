@@ -1,0 +1,52 @@
+/***    DARK   ***/
+
+.darkBody{
+    background-color:   #37383C;
+}
+
+.darkTrending{
+    background-color: #222326;;
+}
+
+.whiteText{
+    color: white !important;
+}
+
+/** Home **/
+
+.darkNav{
+    border-top: 5px solid black;
+}
+
+.darkNavLogo{
+    content: url('../images/Logo-modo-noc.svg');
+}
+
+.navWhiteText{
+    color: white !important;
+}
+
+.navWhiteText:active{
+    color: #9CAFC3 !important;
+}
+
+.darkCreateImg{
+    content: url('../images/CTA-crear-gifo-modo-noc.svg') !important;
+}
+
+.darkCreateImg:hover{
+    content: url('../images/CTA-crear-gifo-hover-modo-noc.svg') !important;
+}
+
+.darkCreateImg:active{
+    content: url('../images/CTA-crear-gifo-active-modo-noc.svg') !important;
+}
+
+.whiteSearchBar{
+    border: 1px solid white !important;
+}
+
+.whiteSearchIcon{
+    content: url('../images/icon-search-mod-noc.svg');
+}
+

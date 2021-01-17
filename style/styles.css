@@ -223,12 +223,16 @@ nav .darkModeButton{
     color: #572EE5;
 }
 
+.search .trendingTermsContainer{
+    display: flex;
+    padding-bottom: 95px;
+}
+
 .search .trendingTermsContainer h3{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: #572EE5;
-    padding-bottom: 95px;
 }
 
 .search .searchResults{
@@ -899,16 +903,6 @@ footer div .instagram:hover{
 
 .overlay .maxDownload:hover{
     content: url("../images/icon-download-hover.svg");
-}
-
-/***    DARK   ***/
-
-.darkBody{
-    background-color:   #37383C;
-}
-
-.darkTrending{
-    background-color: #222326;;
 }
 
 @media only screen and (max-width: 1100px){
