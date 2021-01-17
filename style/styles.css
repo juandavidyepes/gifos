@@ -228,6 +228,8 @@ nav .darkModeButton{
 .search .trendingTermsContainer{
     display: flex;
     padding-bottom: 95px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .search .trendingTermsContainer h3{
