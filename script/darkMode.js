@@ -31,9 +31,11 @@ const setDarkMode = () => {
 
 
     if(document.body.classList.contains('index')){
+        addClass('.searchBar','whiteBorder')
         addClass('.searchInput','darkBody')
-        addClass('.searchBar','whiteSearchBar')
+        addClass('.searchInput','whiteText')        
         addClass('.searchIcon','whiteSearchIcon')
+        addClass('.autocompleteList','whiteBorder')
     }
     
 }

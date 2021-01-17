@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+main{
+    width: 100%;
+}
+
 /***     NAV        ***/
 
 nav{
@@ -186,9 +190,7 @@ nav .darkModeButton{
     display: none;
     list-style: none;
     width: 507px;
-    border-bottom: 1px solid #572EE5;
-    border-left: 1px solid #572EE5;
-    border-right: 1px solid #572EE5;
+    border: 1px solid #572EE5;
     border-radius: 27px;
     padding: 50px 0px 18px 44px;
     margin-top: -51px;
@@ -458,7 +460,7 @@ nav .darkModeButton{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: inherit;
+    width: 100%;
     overflow-x: scroll;
 }
 
@@ -937,6 +939,12 @@ footer div .instagram:hover{
 
     .trending .gifsTrendContainer{
         padding: 53px 0 0 0;
+        height: 243px;
+    }
+
+    .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
+        margin: 69px 23px 69px 0;
+        height: 40px;
     }
 }
 
