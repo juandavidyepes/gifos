@@ -1,6 +1,7 @@
 //Dark Mode
 
 const setDarkMode = () => {
+    let screenSize900 = window.matchMedia('(max-width: 900px)')
     function addClassMulti (element, classToAdd,){
         let arrayOfElements = document.querySelectorAll(element)
         arrayOfElements.forEach(element => {
@@ -14,26 +15,34 @@ const setDarkMode = () => {
     }
 
     document.body.classList.toggle('darkBody');
+
+    if (screenSize900.matches){
+        addClassMulti('.navLogo','darkNavLogoMobile')
+        addClassMulti('.menu','darkBurgerMenu')
+    }else{
+        addClassMulti('.navLogo','darkNavLogo')}
+
     addClassMulti('.trending','darkTrending')
     addClassMulti('h1','whiteText')
     addClassMulti('h2','whiteText')
     addClassMulti('h3','whiteText')
-    addClassMulti('.navLogo','darkNavLogo')
     addClassMulti('.darkModeText','navWhiteText')
     addClassMulti('#favsButton','navWhiteText')
     addClassMulti('#myGifsButton','navWhiteText')
     addClassMulti('.createImg','darkCreateImg')
-
+    addClassMulti('.navIcon','darkNavIcon')
     addClass('nav','darkBody')
     addClass('nav','darkNav')
     addClass('.imgLeftArrow','darkLeftArrow')
     addClass('.imgRightArrow','darkRightArrow')
+    addClassMulti('.imgVerMas','darkVerMas')
 
 
     if(document.body.classList.contains('index')){
         addClass('.searchBar','whiteBorder')
         addClass('.searchInput','darkBody')
         addClass('.searchInput','whiteText')        
+        addClass('.resetIcon','whiteResetIcon')                
         addClass('.searchIcon','whiteSearchIcon')
         addClass('.autocompleteList','whiteBorder')
     }

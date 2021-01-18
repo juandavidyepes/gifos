@@ -12,6 +12,18 @@
     color: white !important;
 }
 
+.whiteBorder{
+    border: 1px solid white !important;
+}
+
+.darkVerMas{
+    content: url('../images/CTA-ver+-modo-noc.svg') !important;
+}
+
+.darkVerMas:hover{
+    content: url('../images/CTA-ver+hover-modo-noc.svg') !important;
+}
+
 /** Home **/
 
 .darkNav{
@@ -20,6 +32,10 @@
 
 .darkNavLogo{
     content: url('../images/Logo-modo-noc.svg');
+}
+
+.darkNavLogoMobile{
+    content: url('../images/logo-mobile-modo-noct.svg') !important;
 }
 
 .navWhiteText{
@@ -42,13 +58,33 @@
     content: url('../images/CTA-crear-gifo-active-modo-noc.svg') !important;
 }
 
-.whiteBorder{
-    border: 1px solid white !important;
+.darkNavIcon{
+    content: url('../images/burger-modo-noct.svg') !important;
 }
+
+.respmenu .menuButton:checked ~ .menuIcon .darkNavIcon{
+    content: url('../images/close-modo-noct.svg') !important;
+} 
+
+.darkBurgerMenu{
+    background: black !important;
+}
+
+/*Search*/
 
 .whiteSearchIcon{
     content: url('../images/icon-search-mod-noc.svg') !important;
 }
+
+.whiteResetIcon{
+    content: url('../images/close-modo-noct.svg') !important;
+}
+
+.darkSearchBar{
+    border: solid 1px #37383C !important;
+}
+
+/*Trendings*/
 
 .darkLeftArrow{
     content: url('../images/button-slider-left-md-noct.svg');

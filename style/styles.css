@@ -175,6 +175,7 @@ nav .darkModeButton{
 }
 
 .search .searchBar .searchIcon{
+    content: url('../images/icon-search.svg');
     border: 0;
     outline: 0;
     padding-left: 247px;
@@ -964,6 +965,7 @@ footer div .instagram:hover{
         padding: 0;
         background-color: white;
         z-index: +5;
+        
     }
     
     .respmenu .menu{

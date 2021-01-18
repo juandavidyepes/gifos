@@ -48,6 +48,8 @@ const searchGifs = async () => {
         titleTrend.style.fontSize='35px'
     }
     removeAutocomplete()    
+    searchBar.classList.remove('darkSearchBar')
+
 }
 
 //Evento para buscar al darle SUBMIT
@@ -108,9 +110,16 @@ const showSuggestions = suggestionsList => {
     })
     
     if (autocompleteList.innerHTML == ''){
+        searchBar.classList.remove('darkSearchBar')
         removeAutocomplete()
     }else{
-        searchBar.style.border = '0';
+        let modeStatus = localStorage.getItem('darkModeToggle')
+        if(modeStatus == 'true'){
+            searchBar.classList.add('darkSearchBar')
+        }else{
+            searchBar.style.border = '0';
+        }
+       
     }
 }
 
@@ -126,6 +135,7 @@ searchInput.addEventListener('keyup', async () => {
     searchGrey.style.display = 'block' 
     searchInput.style.paddingLeft = '9px'
     resetIcon.addEventListener('click', async () =>{
+        searchBar.classList.remove('darkSearchBar')
         searchBar.reset()
         removeAutocomplete()
         searchIcon.style.display = 'block'
@@ -181,6 +191,11 @@ showTrendTerms = trendTerms => {
         trendingTerms.classList.add('trenTerm')
         const coma = document.createElement('h3')
         coma.classList.add('trenTerm')
+        let modeStatus = localStorage.getItem('darkModeToggle')
+        if(modeStatus == 'true'){
+            trendingTerms.classList.add('whiteText')
+            coma.classList.add('whiteText')
+        }
         trendingTerms.textContent=term
         trendingTermsContainer.appendChild(trendingTerms)
         coma.textContent=','
