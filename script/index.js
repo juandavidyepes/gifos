@@ -229,7 +229,7 @@ function stickBar() {
             autocompleteList.style.transform = 'translateX(-250px)'
             searchInput.style.width = '205px'
             searchInput.style.padding = '0 0 0 15px'
-            searchIcon.style.padding = '0 0 0 40px'
+            searchIcon.style.margin = '0 0 0 40px'
             resetIcon.style.paddingLeft = '10px'
         } else {
                 searchBar.classList.remove("stickyBar");
@@ -241,7 +241,7 @@ function stickBar() {
                 autocompleteList.style.padding = '50px 0px 18px 44px'
                 searchInput.style.width = '210px'
                 searchInput.style.padding = '0 0 0 50px'
-                searchIcon.style.padding = '0 0 0 247px'
+                searchIcon.style.margin = '0 0 0 247px'
                 resetIcon.style.paddingLeft = '255px'
                 if (searchInput.value == ''){searchInput.style.padding = '0 0 0 50px'}
                 else{searchInput.style.padding = '0 0 0 9px'}

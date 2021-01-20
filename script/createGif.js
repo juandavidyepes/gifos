@@ -33,7 +33,12 @@ const getStreamAndRecord = () => {
     title.textContent = '¿Nos das acceso a tu cámara?'
     subtitle.textContent = 'El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO.'
     btn.style.display = 'none' 
-    step1.src = 'images/paso-a-paso-hover1.svg'
+    let modeStatus = localStorage.getItem('darkModeToggle')
+    if(modeStatus == 'true'){
+        step1.classList.toggle('darkOnStep1')
+    }else{
+        step1.classList.toggle('onStep1')
+    }
     navigator.mediaDevices.getUserMedia({
     audio: false,
     video: {
@@ -41,8 +46,15 @@ const getStreamAndRecord = () => {
     }
     })
         .then(function(stream) {
-            step1.src = 'images/paso-a-paso1.svg'
-            step2.src = 'images/paso-a-paso-hover2.svg'
+            let modeStatus = localStorage.getItem('darkModeToggle')
+            if(modeStatus == 'true'){
+                step1.classList.toggle('darkOnStep1')
+                step2.classList.toggle('darkOnStep2')
+            }else{
+                step1.classList.toggle('onStep1')
+                step2.classList.toggle('onStep2')
+            }
+            
             video.style.display='block'
             title.style.display='none'
             subtitle.style.display='none'

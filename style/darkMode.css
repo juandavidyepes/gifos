@@ -1,7 +1,7 @@
 /***    DARK   ***/
 
 .darkBody{
-    background-color:   #37383C;
+    background-color:   #37383C !important;
 }
 
 .darkTrending{
@@ -73,7 +73,7 @@
 /*Search*/
 
 .whiteSearchIcon{
-    content: url('../images/icon-search-mod-noc.svg') !important;
+    background-image: url('../images/icon-search-mod-noc.svg') !important;
 }
 
 .whiteResetIcon{
@@ -102,4 +102,82 @@
 .darkRightArrow:hover{
     content: url('../images/button-slider-right.svg') !important;
     background-color: white;
+}
+
+/*CreateGif*/
+
+.darkCamera{    
+    content: url('../images/camara-modo-noc.svg') !important;
+}
+
+.darkBigBox{
+    border: solid 1px white !important;
+}
+
+.darkBorderlessBox{
+    border: solid 1px #37383C !important;
+}
+
+.darkStep1{    
+    content: url('../images/paso-a-paso-mod-noc1.svg');
+}
+
+.darkStep2{    
+    content: url('../images/paso-a-paso-mod-noc2.svg');
+}
+
+.darkStep3{    
+    content: url('../images/paso-a-paso-mod-noc3.svg');
+}
+
+.darkOnStep1{
+    content: url('../images/paso-a-paso-hover-mod-noc1.svg') !important;
+}
+
+.darkOnStep2{
+    content: url('../images/paso-a-paso-hover-mod-noc2.svg') !important;
+}
+
+.darkOnStep3{
+    content: url('../images/paso-a-paso-hover-mod-noc3.svg') !important;
+}
+
+.darkBtnAction{
+    border: 1px solid white  !important;
+    color: white !important;
+    background-color: #37383C;
+}
+
+.darkBtnAction:hover{
+    border: 1px solid white  !important;
+    color:#37383C !important;
+    background-color:  white !important;
+}
+
+.darkPeliculaImg{    
+    content: url('../images/pelicula-modo-noc.svg') !important;
+}
+
+/*overlay*/
+
+.darkClose{
+    content: url('../images/close-modo-noct.svg') !important;
+}
+
+.darkOverlayIcons{
+    border: solid 0px #CED7E1 !important;
+}
+
+/*Footer*/
+
+.darkFace:hover{
+    content: url('../images/icon_facebook_noc.svg') !important;
+}
+
+.darkTwitter:hover{
+    content: url('../images/icon_twitter_noc.svg') !important;
+}
+
+.darkInsta:hover{
+    content: url('../images/icon_instagram_noc.svg') !important;
 }

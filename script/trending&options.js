@@ -192,7 +192,6 @@ function expand (addmaxBtn, gifInfo){
 
         close.addEventListener('click', () => {
             overlay.remove()
-            gifOptions.remove()
         })
 
         prevGif.addEventListener('click', () => {
@@ -203,8 +202,22 @@ function expand (addmaxBtn, gifInfo){
             getNextGif(nextGif)
         })
 
+        let modeStatus = localStorage.getItem('darkModeToggle')
+        if(modeStatus == 'true'){
+            overlay.classList.add('darkBody')
+            prevGif.classList.add('darkLeftArrow')
+            nextGif.classList.add('darkRightArrow')
+            close.classList.add('darkClose')
+            username.classList.add('whiteText')
+            title.classList.add('whiteText')
+            maxFav.classList.add('darkOverlayIcons')
+            maxDownload.classList.add('darkOverlayIcons')
+        }else{
+            overlay.classList.remove('darkBody')
+            prevGif.classList.remove('darkLeftArrow')
+            nextGif.classList.remove('darkRightArrow')
+        }
     })
-    addmaxBtn
 }
 
 function getPrevGif () {

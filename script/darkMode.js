@@ -22,7 +22,7 @@ const setDarkMode = () => {
     }else{
         addClassMulti('.navLogo','darkNavLogo')}
 
-    addClassMulti('.trending','darkTrending')
+    
     addClassMulti('h1','whiteText')
     addClassMulti('h2','whiteText')
     addClassMulti('h3','whiteText')
@@ -33,9 +33,17 @@ const setDarkMode = () => {
     addClassMulti('.navIcon','darkNavIcon')
     addClass('nav','darkBody')
     addClass('nav','darkNav')
+    addClassMulti('.facebook','darkFace')
+    addClassMulti('.twitter','darkTwitter')
+    addClassMulti('.instagram','darkInsta')
+
+    if(document.body.classList.contains('index') || document.body.classList.contains('favs') || document.body.classList.contains('myGifs')){
+    addClassMulti('.trending','darkTrending')
     addClass('.imgLeftArrow','darkLeftArrow')
     addClass('.imgRightArrow','darkRightArrow')
     addClassMulti('.imgVerMas','darkVerMas')
+    }
+
 
 
     if(document.body.classList.contains('index')){
@@ -47,6 +55,18 @@ const setDarkMode = () => {
         addClass('.autocompleteList','whiteBorder')
     }
     
+    if(document.body.classList.contains('createGif')){
+        addClass('.cameraImg','darkCamera')
+        addClass('.bigBox','darkBigBox')
+        addClass('.borderlessBox','darkBorderlessBox')
+        addClass('.step1','darkStep1')
+        addClass('.step2','darkStep2')
+        addClass('.step3','darkStep3')
+        addClass('.gifCountContainer','darkGifCountContainer')
+        addClass('.peliculaImg','darkPeliculaImg')
+        addClass('.btnAction','darkBtnAction')
+        addClassMulti('p','whiteText')
+    }
 }
 
 darkModeButton.addEventListener('change', () => {
