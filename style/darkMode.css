@@ -84,6 +84,15 @@
     border: solid 1px #37383C !important;
 }
 
+.darkStickyBar{
+    background-color: #37383C !important;
+}
+
+.darkStickyList{
+    background-color: #37383C !important;
+    border: solid 1px white !important;
+}
+
 /*Trendings*/
 
 .darkLeftArrow{

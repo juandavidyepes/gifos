@@ -44,17 +44,15 @@ const setDarkMode = () => {
     addClassMulti('.imgVerMas','darkVerMas')
     }
 
-
-
     if(document.body.classList.contains('index')){
         addClass('.searchBar','whiteBorder')
         addClass('.searchInput','darkBody')
-        addClass('.searchInput','whiteText')        
+        addClass('.searchInput','whiteText')
         addClass('.resetIcon','whiteResetIcon')                
         addClass('.searchIcon','whiteSearchIcon')
         addClass('.autocompleteList','whiteBorder')
     }
-    
+
     if(document.body.classList.contains('createGif')){
         addClass('.cameraImg','darkCamera')
         addClass('.bigBox','darkBigBox')

@@ -102,7 +102,6 @@ const showSuggestions = suggestionsList => {
         const suggestionItem = document.createElement('li')
         suggestionItem.textContent=suggestion.name
         autocompleteList.appendChild(suggestionItem)
-        
         suggestionItem.addEventListener('click', async () => {
             searchInput.value=suggestionItem.textContent
             searchGifs()
@@ -119,7 +118,6 @@ const showSuggestions = suggestionsList => {
         }else{
             searchBar.style.border = '0';
         }
-       
     }
 }
 
@@ -219,6 +217,7 @@ var sticky = searchBar.offsetTop;
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function stickBar() {
     if (screenSize560.matches){
+        let modeStatus = localStorage.getItem('darkModeToggle')
         if (window.pageYOffset >= sticky) {
             searchBar.classList.add("stickyBar")
             autocompleteList.classList.add("stickyList")
@@ -231,20 +230,28 @@ function stickBar() {
             searchInput.style.padding = '0 0 0 15px'
             searchIcon.style.margin = '0 0 0 40px'
             resetIcon.style.paddingLeft = '10px'
-        } else {
-                searchBar.classList.remove("stickyBar");
-                autocompleteList.classList.remove("stickyList");
-                searchBar.style.width = '551px'
-                searchBar.style.transform = 'translateX(0)'
-                autocompleteList.style.width = '507px'
-                autocompleteList.style.transform = 'translateX(0)'
-                autocompleteList.style.padding = '50px 0px 18px 44px'
-                searchInput.style.width = '210px'
-                searchInput.style.padding = '0 0 0 50px'
-                searchIcon.style.margin = '0 0 0 247px'
-                resetIcon.style.paddingLeft = '255px'
-                if (searchInput.value == ''){searchInput.style.padding = '0 0 0 50px'}
-                else{searchInput.style.padding = '0 0 0 9px'}
+            if(modeStatus == 'true'){
+                searchBar.classList.add('darkStickyBar')
+                autocompleteList.classList.add('darkStickyList')
+            }
+        }else{
+            if(modeStatus == 'true'){
+                searchBar.classList.remove('darkStickyBar')
+                autocompleteList.classList.remove('darkStickyList')
+            }
+            searchBar.classList.remove("stickyBar");
+            autocompleteList.classList.remove("stickyList");
+            searchBar.style.width = '551px'
+            searchBar.style.transform = 'translateX(0)'
+            autocompleteList.style.width = '507px'
+            autocompleteList.style.transform = 'translateX(0)'
+            autocompleteList.style.padding = '50px 0px 18px 44px'
+            searchInput.style.width = '210px'
+            searchInput.style.padding = '0 0 0 50px'
+            searchIcon.style.margin = '0 0 0 247px'
+            resetIcon.style.paddingLeft = '255px'
+            if (searchInput.value == ''){searchInput.style.padding = '0 0 0 50px'}
+            else{searchInput.style.padding = '0 0 0 9px'}
         }
     }
 }
