@@ -564,6 +564,7 @@ nav .darkModeButton{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .createGif .createTop .title{
@@ -661,12 +662,32 @@ nav .darkModeButton{
     width: 9.1%;
     margin: 0 0 0 9.6%;
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     font-size: 15px;
     color: #572EE5;
     letter-spacing: 0;
     text-align: center;
     line-height: 22px;
 }
+
+.createGif .checkScreen{
+    left: 0;
+    top: 0;
+    padding: 0;
+    background: rgba(87, 46, 229, 0.6);
+    z-index: +1;
+    height: 320px;
+    width: 73.85%;
+    position: absolute;
+}
+
+.createGif .checkIcon{}
+
+.createGif .checkText{}
+
+.createGif .checkDownload{}
+
+.createGif .checkLink{}
 
 /***    FOOTER      ***/
 
