@@ -40,12 +40,14 @@ const getStreamAndRecord = () => {
         step1.classList.toggle('onStep1')
     }
     navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: {
-        height: { max: 480 }
+        audio: false,
+        video: {
+        height: { 
+            max: 480
+        }
     }
     })
-        .then(function(stream) {
+        .then(stream => {
             let modeStatus = localStorage.getItem('darkModeToggle')
             if(modeStatus == 'true'){
                 step1.classList.toggle('darkOnStep1')
@@ -54,30 +56,50 @@ const getStreamAndRecord = () => {
                 step1.classList.toggle('onStep1')
                 step2.classList.toggle('onStep2')
             }
-            
             video.style.display='block'
             title.style.display='none'
             subtitle.style.display='none'
             btn.style.display = 'flex'
             btn.textContent = 'Grabar'
+            console.log('PREPARADO')
+
             video.srcObject = stream;
-            console.log(stream)
             video.play()
+
             const recorder = RecordRTC(stream, {
                 type: 'gif',
                 frameRate: 1,
                 quality: 10,
                 width: 360,
                 hidden: 240,
-                onGifRecordingStarted: function() {
-                console.log('started')
+                onGifRecordingStarted: () => {
+                    console.log('GRABANDO')
                 }
             })
 
             const recording = () => {
                 btn.textContent = 'Finalizar'
                 btn.removeEventListener('click', recording)
-                btn.addEventListener('click', stop )
+                btn.addEventListener('click',  () => {
+                    console.log('SE DETUVO')
+                    btn.textContent = 'Subir GIFO'
+                    recorder.stopRecording(async () => {
+                      let blob = recorder.getBlob();
+                      console.log(recorder)
+                      const data = new FormData()
+                      data.append('file', blob, 'ungif.gif')
+                      console.log(data)
+                      const response = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, {
+                        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                        body: data,
+                      });
+          
+                      const response_json = await response.json()
+                      console.log(response_json)
+          
+                      console.log(data.get('file'))
+                    })
+                  })
                 countTimer()
             }
 
@@ -111,7 +133,5 @@ const getStreamAndRecord = () => {
 
         })
 }
-
-
 
 btn.addEventListener('click', getStreamAndRecord)
