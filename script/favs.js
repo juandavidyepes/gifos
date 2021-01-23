@@ -12,7 +12,8 @@ if (favsList.length == 0){
     function showFavs (favsList, start, limit, buttonContainerFavs) {
         for(i=start; i<limit; i++){
             if(favsList[i]===undefined){break;}
-            var favGif = favsList[i]    
+            var favGif = favsList[i]  
+            console.log(favGif)  
             const gifFavContainer = document.createElement('div')
             const gifFav = document.createElement('img')
             favsContainer.appendChild(gifFavContainer)

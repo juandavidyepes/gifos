@@ -196,7 +196,7 @@ showTrendTerms = trendTerms => {
         }
         trendingTerms.textContent=term
         trendingTermsContainer.appendChild(trendingTerms)
-        coma.textContent=','
+        coma.textContent= ','
         if(array.length!=idx+1){trendingTermsContainer.appendChild(coma)}
         trendingTerms.addEventListener('click', async () => {
             searchInput.value=trendingTerms.textContent

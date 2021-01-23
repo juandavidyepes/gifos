@@ -21,7 +21,6 @@ const gifsTrendContainer = document.querySelector('.gifsTrendContainer')
 //Crea un div para mostrar cada gif trending obtenido,asignandolo a su imagen de fondo. Llamo la funcion para mostrar las opciones en cada uno
 showTrendings = trendings => {
     trendings.forEach(trending => {
-        console.log(trending)
         const gifTrendContainer = document.createElement('div')
         const gifTrend = document.createElement('img')
         const urlGifTrend =trending.images.original.url
@@ -47,15 +46,22 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL, gifContainer) {
         const addmaxBtn = document.createElement('img')
         const adduser = document.createElement('p')
         const addtitleGif = document.createElement('p')
+        const trashBtn = document.createElement('img')
         gifOptions.appendChild(addmaxBtn)
         gifOptions.appendChild(addDownloadBtn)
-        gifOptions.appendChild(removeFavBtn)
-        gifOptions.appendChild(addFavsBtn)
+        
+        if(gifContainer.parentNode.classList.contains('mygifsContainer')){
+            gifOptions.appendChild(trashBtn)
+        }else{
+            gifOptions.appendChild(removeFavBtn)
+            gifOptions.appendChild(addFavsBtn)
+        }
         gifOptions.appendChild(adduser)
         gifOptions.appendChild(addtitleGif)
         addFavsBtn.classList.add('addFavsBtn')
         removeFavBtn.classList.add('removeFavBtn')
         addDownloadBtn.classList.add('downloadBtn')
+        trashBtn.classList.add('trashBtn')
         addmaxBtn.classList.add('maxBtn')
         adduser.classList.add('user')
         addtitleGif.classList.add('titleGif')
@@ -64,7 +70,6 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL, gifContainer) {
         adduser.textContent = userIF
         addtitleGif.textContent=gifTitle
 
-        const gifToFavs = gifOptions.parentNode
         let gifInfo = {
             url: gifURL,
             username: userIF,
@@ -84,6 +89,7 @@ function gifsOptions (gif, username, gifTitle, gifID, gifURL, gifContainer) {
         }
 
         download(addDownloadBtn, gifInfo)
+        removeMyGif(trashBtn, gifInfo)
 
         const screenSize900 = window.matchMedia('(max-width: 900px)')
 
@@ -106,13 +112,13 @@ function addFavGif (favBtn, removeFavBtn, gifInfo) {
         favBtn.style.display='none'
         removeFavBtn.style.display='block'
         removeFavGif(removeFavBtn, favBtn)
-
+        if(document.body.classList.contains('favs')){location.reload()}
     })
 }
 
 function removeFavGif (favBtn, removeFavBtn, gifInfo) {
-    removeFavBtn.addEventListener('click', async () => {
-        const index = favsList.map(function(e){return e.title;}).indexOf(gifInfo.title)
+    removeFavBtn.addEventListener('click', () => {
+        const index = favsList.map(function(e){return e.id;}).indexOf(gifInfo.id)
         favsList.splice(index, 1)      
         localStorage.setItem('favGifs', JSON.stringify(favsList))
         favBtn.style.display='block'
@@ -125,6 +131,15 @@ function download (downloadBtn, gifInfo){
     downloadBtn.addEventListener('click', async () => {
         console.log(gifInfo.url)
         window.open(gifInfo.urlAlone)
+    })
+}
+
+function removeMyGif(trashBtn, gifInfo){
+    trashBtn.addEventListener('click', () => {
+        const index = myGifsList.map(function(e){return e.id;}).indexOf(gifInfo.id)
+        myGifsList.splice(index, 1)      
+        localStorage.setItem('myGifs', JSON.stringify(myGifsList))
+        location.reload()
     })
 }
 
@@ -211,6 +226,7 @@ function expand (addmaxBtn, gifInfo){
             username.classList.add('whiteText')
             title.classList.add('whiteText')
             maxFav.classList.add('darkOverlayIcons')
+            removeFavBtn.classList.add('darkOverlayIcons')
             maxDownload.classList.add('darkOverlayIcons')
         }else{
             overlay.classList.remove('darkBody')
