@@ -5,12 +5,7 @@ const buttonContainerMyGifs = document.querySelector('.buttonContainerMyGifs')
 var startMyGifs = 0
 var limitMyGifs = 12
 
-if (myGifsList.length == 0){
-    console.log('ta vacio')
-    mygifsNoContent.style.display = 'flex'
-    buttonContainerMyGifs.style.display = 'none'
-    mygifsContainer.style.display = 'none'
-}else{
+if (myGifsList.length != 0){
     ids = JSON.parse(localStorage.getItem('myGifs')).join()
 
     if(myGifsList.length > 12){
@@ -23,6 +18,12 @@ if (myGifsList.length == 0){
     }
 
     showMyGifs(startMyGifs, limitMyGifs)
+
+}else{
+    console.log('ta vacio')
+    mygifsNoContent.style.display = 'flex'
+    buttonContainerMyGifs.style.display = 'none'
+    mygifsContainer.style.display = 'none'
 }
 
 async function getGifsById () {
