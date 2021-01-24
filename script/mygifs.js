@@ -5,8 +5,7 @@ const buttonContainerMyGifs = document.querySelector('.buttonContainerMyGifs')
 var startMyGifs = 0
 var limitMyGifs = 12
 
-if (localStorage.getItem('myGifs') != null){
-    myGifsList = JSON.parse(localStorage.getItem('myGifs'))
+if (myGifsList.length != 0){
     ids = JSON.parse(localStorage.getItem('myGifs')).join()
 
     if(myGifsList.length > 12){
@@ -39,7 +38,6 @@ async function showMyGifs (startMyGifs, limitMyGifs) {
     for(i=startMyGifs; i<limitMyGifs; i++){
         if(myGifs[i]===undefined){break;}
         var myGif = myGifs[i]   
-        console.log(myGif)
         const gifMyContainer = document.createElement('div')
         const gifMyImg = document.createElement('img')
         mygifsContainer.appendChild(gifMyContainer)

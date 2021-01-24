@@ -132,7 +132,11 @@ searchInput.addEventListener('keyup', async () => {
     resetIcon.style.display = 'block'
     searchGrey.style.display = 'block' 
     searchInput.style.paddingLeft = '9px'
-    resetIcon.addEventListener('click', async () =>{
+    reset()
+})
+
+function reset () {
+    resetIcon.addEventListener('click', () =>{
         searchBar.classList.remove('darkSearchBar')
         searchBar.reset()
         removeAutocomplete()
@@ -151,7 +155,7 @@ searchInput.addEventListener('keyup', async () => {
         if (screenSize560.matches){searchInput.style.paddingLeft = '15px'}
         else{searchInput.style.paddingLeft = '54px'}
     }
-})
+}
 
 //Funcion para mostrar los gifs obtenidos en una grid, creando un div en cada espacio y asignando la imagen al fondo. Llamo la funcion para mostrar las opciones en cada uno
 const showGifs = gifsSearch => {
@@ -198,9 +202,14 @@ showTrendTerms = trendTerms => {
         trendingTermsContainer.appendChild(trendingTerms)
         coma.textContent= ','
         if(array.length!=idx+1){trendingTermsContainer.appendChild(coma)}
-        trendingTerms.addEventListener('click', async () => {
+        trendingTerms.addEventListener('click', () => {
             searchInput.value=trendingTerms.textContent
             searchGifs()
+            searchIcon.style.display = 'none'
+            resetIcon.style.display = 'block'
+            searchGrey.style.display = 'block' 
+            searchInput.style.padding = '0 0 0 9px'
+            reset()
         })
     })
 }
@@ -250,8 +259,11 @@ function stickBar() {
             searchInput.style.padding = '0 0 0 50px'
             searchIcon.style.margin = '0 0 0 247px'
             resetIcon.style.paddingLeft = '255px'
-            if (searchInput.value == ''){searchInput.style.padding = '0 0 0 50px'}
-            else{searchInput.style.padding = '0 0 0 9px'}
+            if (searchInput.value == ''){
+                searchInput.style.padding = '0 0 0 50px'
+            }else{
+                searchInput.style.padding = '0 0 0 9px'
+            }
         }
     }
 }

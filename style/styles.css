@@ -6,6 +6,7 @@
 
 main{
     width: 100%;
+    overflow-x: hidden;
 }
 
 /***     NAV        ***/
@@ -499,7 +500,7 @@ nav .darkModeButton{
 }
 
 .trending .gifsTrendContainer .gifContainer{
-    margin-right: 23px;
+    margin: 0 11.5px 011.5px;
 }
 
 .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
@@ -892,6 +893,7 @@ footer div .instagram:hover{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
 }
 
 .overlay .close{
@@ -904,14 +906,12 @@ footer div .instagram:hover{
 
 .overlay .prevGif{
     align-self: center;
-    flex-basis: 7%;
-    margin-left: auto;
+    margin: 0 1.7% 0 auto;
 }
 
 .overlay .nextGif{
     align-self: center;
-    flex-basis: 7%;
-    margin-right: auto;
+    margin: 0 auto 0 1.7%;
 }
 
 .overlay .gifMax{
@@ -921,22 +921,15 @@ footer div .instagram:hover{
     padding-right: auto;
 }
 
+.overlay .textContainer{
+    margin: 27px 0 0 auto;
+}
+
 .overlay .gifMaxUsername{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     color: #000000;
-    padding: 27px 0 0 24.7%;
-}
-
-.overlay .maxFav, .overlay .removeFavBtn{
-    align-self: flex-start;
-    margin: 27px 0 0 40%;
-}
-
-.overlay .maxDownload{
-    align-self: flex-start;
-    float: left;
-    margin: 27px 0 0 21px;
+    padding-bottom: 6px;
 }
 
 .overlay .gifMaxTitle{
@@ -945,7 +938,28 @@ footer div .instagram:hover{
     font-size: 16px;
     color: #000000;
     flex-basis: 100%;
-    padding-left: 24.7%;
+}
+
+.overlay .maxFav, .overlay .maxTrash{
+    align-self: flex-start;
+    margin: 27px 0 0 auto;
+}
+
+.overlay .removeFavBtn{
+    content: url("../images/icon-fav-active.svg");
+    display: none;
+    padding: 10px 0 0 9px;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    align-self: flex-start;
+    margin: 27px 0 0 auto;
+}
+
+.overlay .maxDownload{
+    align-self: flex-start;
+    float: left;
+    margin: 27px auto 0 21px;
 }
 
 .overlay .prevGif:hover{
@@ -960,7 +974,11 @@ footer div .instagram:hover{
     content: url("../images/icon-fav-hover.svg");
 }
 
-.overlay .maxFav, .overlay .removeFavBtn, .overlay .maxDownload {
+.overlay .maxTrash{
+    content: url('../images/icon-trash-hover.svg')
+}
+
+.overlay .maxFav, .overlay .removeFavBtn, .overlay .maxDownload ,.overlay .maxTrash {
     border: solid 2px #CED7E1;
     border-radius: 6px;
 }
@@ -969,16 +987,7 @@ footer div .instagram:hover{
     content: url("../images/icon-fav-active.svg");
 }
 
-.overlay .removeFavBtn{
-    content: url("../images/icon-fav-active.svg");
-    display: none;
-    margin: auto 0 0 auto;
-    padding: 10px 0 0 9px;
-    margin: 27px 10px 0 40%;
-    width: 22px;
-    height: 22px;
-    background-color: white;
-}
+
 
 .overlay .maxDownload:hover{
     content: url("../images/icon-download-hover.svg");
@@ -1030,7 +1039,7 @@ footer div .instagram:hover{
 
     .respmenu{
         position: fixed;
-        height: 95px;
+        height: 100px;
         display: block;
         width: 100%;
         margin: 0;
@@ -1126,7 +1135,7 @@ footer div .instagram:hover{
     }
 
     .overlay .gifMax{
-        max-width: 50%;
+        width: 50%;
         height: auto;
         margin: 0 auto 0 auto;
     }
@@ -1135,13 +1144,13 @@ footer div .instagram:hover{
         display: none;
     }
     
-    .trending{
-        overflow-x: scroll;
-    }
-    
     .trending .gifsTrendContainer{
+        width: 100%;
         padding: 53px 0 0 0;
         align-self: flex-start;
+        position: relative;
+        overflow-x: scroll;
+        justify-content: flex-start;
     }
     
     .trending .gifsTrendContainer .gifContainer{
@@ -1234,31 +1243,25 @@ footer div .instagram:hover{
     }
     
     .overlay .gifMax{
-        max-width: 318px;
-        height: auto;
-        margin: 0 auto 0 auto;
+        width: 260px;
+        margin: 0 29px 0 29px;
     }
 
     .overlay .prevGif, .overlay .nextGif, .trending .gifsTrendContainer .imgLeftArrow, .trending .gifsTrendContainer .imgRightArrow{
         display: none;
     }
     
-    .overlay .gifMaxUsername{
-        padding: 14px 0 0 9.3%;
+    .overlay .textContainer{
+        margin: 14px auto 0 7.9%;
+        max-width: 40%;
     }
     
-    .overlay .maxFav, .overlay .removeFavBtn{
-        margin: 17px 0 0 30%;
+    .overlay .maxFav, .overlay .removeFavBtn, .overlay .maxTrash{
+        margin: 17px 0 0 0;
     }
     
     .overlay .maxDownload{
-        margin: 17px 0 0 21px;
-    }
-    
-    .overlay .gifMaxTitle{
-        max-width: 40%;
-        padding-left: 7.9%;
-        margin-top: -10px;
+        margin: 17px 7.7% 0 21px;
     }
 
     .search .trendingTermsContainer{
@@ -1266,7 +1269,6 @@ footer div .instagram:hover{
         width: 225px;
         text-align: center;
     }
-       
 
     .search .trendingTermsContainer h3{
         font-size: 13px;
