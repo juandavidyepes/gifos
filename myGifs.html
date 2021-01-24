@@ -13,12 +13,12 @@
     <nav class="respmenu">
         <a class="navLogo" href='index.html'><img class="navLogo" src="images/logo-desktop.svg" alt="logo"></a>
         <input type="checkbox" class="menuButton" id="menuButton">
-        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/burger.svg"></label>
+        <label class="menuIcon" for="menuButton"><img class="navIcon" src="images/burger.svg" alt='burger'></label>
         <ul class="menu">
             <li><input type="checkbox" class="darkModeButton" id="darkModeButton"><label class='darkModeText' for="darkModeButton">MODO NOCTURNO</label></li>
             <li><a id="favsButton" href="favs.html">FAVORITOS</a></li>
             <li><a id="myGifsButton" href="myGifs.html">MIS GIFOS</a></li>
-            <li><div class='divBurger'><a href='createGif.html'><img class="createImg" src="images/button-crear-gifo.svg"></a></div></li>
+            <li><div class='divBurger'><a href='createGif.html'><img class="createImg" src="images/button-crear-gifo.svg" alt='Crear Gifo'></a></div></li>
         </ul>
     </nav>
     <main>
@@ -28,8 +28,9 @@
             <div class="mygifsContent">
                 <div class="mygifsContainer"></div>
                 <div class="buttonContainerMyGifs">
-                    <a class="btnVerMas" type="button" ><img class='imgVerMas' src='images/CTA-ver-mas.svg'></img></a>
-                </div>            
+                        <img class='imgVerMas' src='images/CTA-ver-mas.svg' alt='Ver Mas'>
+                </div>        
+            </div>     
             <div class="mygifsNoContent">
                 <img src="images/icon-mis-gifos-sin-contenido.svg" alt="Sad face no content">
                 <h2 class="mygifsMsg">"¡Anímate a crear tu primer GIFO!"</h2>
@@ -47,14 +48,14 @@
     <footer>
         <div>
             <h3>Compartir en:</h3>
-            <a href="https://www.facebook.com/search/top?q=gifs" target='_blank'><img class='facebook' src="images/icon_facebook.svg"></a>
-            <a href="https://twitter.com/search?q=gifs&src=typed_query" target='_blank'><img class='twitter' src="images/icon-twitter.svg"></a>
-            <a href="https://www.instagram.com/" target='_blank'><img class='instagram' src="images/icon_instagram.svg"></a>          
+            <a href="https://www.facebook.com/search/top?q=gifs" target='_blank'><img class='facebook' src="images/icon_facebook.svg"  alt='Facebook'></a>
+            <a href="https://twitter.com/search?q=gifs&src=typed_query" target='_blank'><img class='twitter' src="images/icon-twitter.svg" alt='Twitter'></a>
+            <a href="https://www.instagram.com/" target='_blank'><img class='instagram' src="images/icon_instagram.svg" alt='Instagram'></a>          
         </div>
         <h3>© GIFOS 2020 All Rights Reserveds</h3>
     </footer>
-    <script src="script\trending&options.js"></script>   
-    <script src="script\mygifs.js"></script> 
-    <script src="script\darkMode.js"></script>  
+    <script src="script/trending&options.js"></script>   
+    <script src="script/mygifs.js"></script> 
+    <script src="script/darkMode.js"></script>  
 </body>
 </html>

@@ -58,7 +58,7 @@ searchBar.addEventListener('submit', async(e) => {
     searchGifs()
 })
 
-const btnVerMas = document.querySelector('.btnVerMas')
+const btnVerMas = document.querySelector('.imgVerMas')
 
 //Evento para buscar y mostrar 12 gifs mas al hacer click en Ver Mas
 btnVerMas.addEventListener('click', async () => {
