@@ -1,5 +1,6 @@
 const API_KEY = 'jWJFF6ZVFn7p6nk7dDLNkUpBqUBwK1fU'
 const screenSize900 = window.matchMedia('(max-width: 900px)')
+const screenSize560 = window.matchMedia('(max-width: 560px)')
 
 if (localStorage.getItem('favGifs') == null){
     var favsList = []
@@ -15,7 +16,7 @@ if (localStorage.getItem('myGifs') == null){
 
 const getTrendings = async () => {
     let limit = 3
-    if (screenSize900.matches){limit = 12}
+    if (screenSize560.matches){limit = 12}
     const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}`);
     const data = await response.json()
     return data.data

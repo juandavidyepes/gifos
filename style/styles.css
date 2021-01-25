@@ -1288,7 +1288,7 @@ footer div .instagram:hover{
         padding-top: 30px;
     }
 
-    .favs .favsNoContent .favsMsg{
+    .favs .favsNoContent .favsMsg, .myGifs .mygifsNoContent .mygifsMsg{
         font-size: 18px;
         width: 250px;
         text-align: center;
