@@ -693,9 +693,25 @@ nav .darkModeButton{
 }
 
 .createGif .checkIcon{
-    padding: 127px 0 9px;
+    margin: 127px 0 9px;
     flex-basis: 100%;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+    .createGif .spinIcon{
+    animation: App-logo-spin infinite 20s linear;
+    margin: 127px auto 9px auto;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
 .createGif .checkText{
     font-family: 'Montserrat', sans-serif;

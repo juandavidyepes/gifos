@@ -215,7 +215,7 @@ showTrendTerms = trendTerms => {
 }
 
 //Sticky search bar
-let screenSize560 = window.matchMedia('(min-width: 900px)')
+let minScreen900 = window.matchMedia('(min-width: 900px)')
 
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {stickBar()};
@@ -225,7 +225,7 @@ var sticky = searchBar.offsetTop;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function stickBar() {
-    if (screenSize560.matches){
+    if (minScreen900.matches){
         let modeStatus = localStorage.getItem('darkModeToggle')
         if (window.pageYOffset >= sticky) {
             searchBar.classList.add("stickyBar")

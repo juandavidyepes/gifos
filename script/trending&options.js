@@ -139,10 +139,20 @@ function removeFavGif (favBtn, removeFavBtn, gifInfo) {
 }
 
 function download (downloadBtn, gifInfo){
-    downloadBtn.addEventListener('click', async () => {
+    downloadBtn.addEventListener('click', downloadGif)
+
+    async function downloadGif(){
         console.log(gifInfo.url)
-        window.open(gifInfo.urlAlone)
-    })
+        console.log(gifInfo.urlAlone)
+        let a = document.createElement('a')
+        let resp = await fetch(gifInfo.url)
+        let file = await resp.blob()
+
+        a.download = gifInfo.title + '.gif'
+        a.href = window.URL.createObjectURL(file)
+        a.click()
+        a.remove()
+    }
 }
 
 function removeMyGif(trashBtn, gifInfo){

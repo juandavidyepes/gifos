@@ -157,6 +157,7 @@ function createLoadingScreen () {
     let checkLink = document.createElement('img')
     checkScreen.classList.add('checkScreen')
     checkIcon.classList.add('checkIcon')
+    checkIcon.classList.toggle('spinIcon')
     checkText.classList.add('checkText')
     checkDownload.classList.add('checkDownload')
     checkLink.classList.add('checkLink')
@@ -173,9 +174,11 @@ function createLoadingScreen () {
 }
 
 function checkScreen (url) {
-    document.querySelector('.checkIcon').src = 'images/check.svg'
-    document.querySelector('.checkIcon').style.padding = '84px 0 9px'
+    let checkIcon = document.querySelector('.checkIcon')
     document.querySelector('.checkText').textContent = 'GIFO subido con éxito'
+    checkIcon.style.margin = '84px 0 9px'
+    checkIcon.src = 'images/check.svg'
+    checkIcon.classList.toggle('spinIcon')
 
     let checkDownload = document.querySelector('.checkDownload')
     let checkLink = document.querySelector('.checkLink')
