@@ -13,3 +13,6 @@ Giphy API
   - Trending Search Terms API
 
 URL: https://juandavidyepes.github.io/GIFOS.github.io/
+
+Juan David Yepes
+judavidy@hotmail.com
