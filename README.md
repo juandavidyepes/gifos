@@ -1,5 +1,5 @@
 # GIFOS
-Second project for Full Stack Web Development course in Acamica.
+Second project of Full Stack Web Development course in Acamica.
 
 Website for Gifs, search them, save them and create.
 
