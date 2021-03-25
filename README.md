@@ -14,6 +14,10 @@ Giphy API
 
 URL: https://juandavidyepes.github.io/gifos/
 
+### Status
+
+Completed
+
 ## Author
 
 Juan David Yepes
