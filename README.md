@@ -12,7 +12,9 @@ Giphy API
   - Search Suggestions
   - Trending Search Terms API
 
-URL: https://juandavidyepes.github.io/GIFOS.github.io/
+URL: https://juandavidyepes.github.io/gifos/
+
+## Author
 
 Juan David Yepes
 judavidy@hotmail.com
